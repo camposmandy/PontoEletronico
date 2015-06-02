@@ -33,7 +33,7 @@ class SemanaManager {
         coreData.saveContext()
     }
     
-    func deletar(materia: PontoEletronico.Semana) {
+    func deletar(semana: PontoEletronico.Semana) {
         coreData.managedObjectContext?.deleteObject(semana)
     }
     

@@ -17,16 +17,16 @@ class UsuarioManager {
     
     private init(){}
     
-    func novoUsuario() -> PontoEletronico.Usuario> {
-        return NSEntityDescription.insertNewObjectForEntityForName(MateriaManager.entidadeNome, inManagedObjectContext: coreData.managedObjectContext!) as! PontoEletronico.Usuario
+    func novoUsuario() -> PontoEletronico.Usuario {
+        return NSEntityDescription.insertNewObjectForEntityForName(UsuarioManager.entidadeNome, inManagedObjectContext: coreData.managedObjectContext!) as! PontoEletronico.Usuario
     }
     
     func Usuario() -> Array<PontoEletronico.Usuario>? {
-        return coreData.fetchData(MateriaManager.entidadeNome, predicate: NSPredicate(format: "TRUEPREDICATE")) as? Array<PontoEletronico.Usuario>
+        return coreData.fetchData(UsuarioManager.entidadeNome, predicate: NSPredicate(format: "TRUEPREDICATE")) as? Array<PontoEletronico.Usuario>
     }
     
     func Usuario(predicate: NSPredicate) -> Array<PontoEletronico.Usuario>?{
-        return coreData.fetchData(MateriaManager.entidadeNome, predicate: predicate) as? Array <PontoEletronico.Usuario>
+        return coreData.fetchData(UsuarioManager.entidadeNome, predicate: predicate) as? Array <PontoEletronico.Usuario>
     }
     
     func salvar() {
@@ -40,7 +40,7 @@ class UsuarioManager {
     func deletarTudo() {
         let todosObjetos: Array<PontoEletronico.Usuario> = self.Usuario()!
         
-        for item : PontoEletronico.Usuario in todosObjetos as Array<MPontoEletronico.Usuario> {
+        for item : PontoEletronico.Usuario in todosObjetos as Array<PontoEletronico.Usuario> {
             self.deletar(item)
         }
     }
