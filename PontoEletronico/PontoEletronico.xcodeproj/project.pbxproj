@@ -21,6 +21,7 @@
 		10BF97D81B1CEACB0007FCB0 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97D71B1CEACB0007FCB0 /* Usuario.swift */; };
 		10BF97DA1B1CEACC0007FCB0 /* Semana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97D91B1CEACC0007FCB0 /* Semana.swift */; };
 		10BF97DC1B1CEACC0007FCB0 /* DiaTrabalhado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97DB1B1CEACC0007FCB0 /* DiaTrabalhado.swift */; };
+		B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB51B1E215E004070A0 /* DesignableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		10BF97D71B1CEACB0007FCB0 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = PontoEletronico/Usuario.swift; sourceTree = "<group>"; };
 		10BF97D91B1CEACC0007FCB0 /* Semana.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Semana.swift; path = PontoEletronico/Semana.swift; sourceTree = "<group>"; };
 		10BF97DB1B1CEACC0007FCB0 /* DiaTrabalhado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaTrabalhado.swift; path = PontoEletronico/DiaTrabalhado.swift; sourceTree = "<group>"; };
+		B2B65DB51B1E215E004070A0 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		10BF97A81B1CDE820007FCB0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B2B65DB51B1E215E004070A0 /* DesignableView.swift */,
 				10BF97A91B1CDE820007FCB0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -256,6 +259,7 @@
 				10BF97D81B1CEACB0007FCB0 /* Usuario.swift in Sources */,
 				10BF97D31B1CE23A0007FCB0 /* SemanaManager.swift in Sources */,
 				10BF97B01B1CDE820007FCB0 /* ViewController.swift in Sources */,
+				B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */,
 				10BF97D11B1CE2290007FCB0 /* DiaTrabalhadoManager.swift in Sources */,
 				10BF97DA1B1CEACC0007FCB0 /* Semana.swift in Sources */,
 				10BF97AE1B1CDE820007FCB0 /* PontoEletronico.xcdatamodeld in Sources */,
@@ -460,6 +464,7 @@
 				10BF97C91B1CDE820007FCB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		10BF97CA1B1CDE820007FCB0 /* Build configuration list for PBXNativeTarget "PontoEletronicoTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +473,7 @@
 				10BF97CC1B1CDE820007FCB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
