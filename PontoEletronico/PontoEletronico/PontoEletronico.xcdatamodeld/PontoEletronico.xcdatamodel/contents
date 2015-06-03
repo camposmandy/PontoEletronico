@@ -6,13 +6,13 @@
         <attribute name="horaSaidaAlmoco" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="horaVoltaAlmoco" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="totalHoras" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Semana" inverseName="newRelationship1" inverseEntity="Semana" syncable="YES"/>
         <relationship name="pertenceUsuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="possuiDiaTrabalhado" inverseEntity="Usuario" syncable="YES"/>
+        <relationship name="possuiSemana" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Semana" inverseName="newRelationship1" inverseEntity="Semana" syncable="YES"/>
     </entity>
     <entity name="Semana" representedClassName="Semana" syncable="YES">
         <attribute name="nomeDIa" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Usuario" inverseName="newRelationship" inverseEntity="Usuario" syncable="YES"/>
-        <relationship name="newRelationship1" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DiaTrabalhado" inverseName="newRelationship" inverseEntity="DiaTrabalhado" syncable="YES"/>
+        <relationship name="newRelationship1" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DiaTrabalhado" inverseName="possuiSemana" inverseEntity="DiaTrabalhado" syncable="YES"/>
+        <relationship name="pertenceUsuario" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Usuario" inverseName="possuiSemana" inverseEntity="Usuario" syncable="YES"/>
     </entity>
     <entity name="Usuario" representedClassName="Usuario" syncable="YES">
         <attribute name="bancoHoras" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -23,12 +23,12 @@
         <attribute name="horasAlmoco" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nomeEmpresa" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Semana" inverseName="newRelationship" inverseEntity="Semana" syncable="YES"/>
         <relationship name="possuiDiaTrabalhado" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DiaTrabalhado" inverseName="pertenceUsuario" inverseEntity="DiaTrabalhado" syncable="YES"/>
+        <relationship name="possuiSemana" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Semana" inverseName="pertenceUsuario" inverseEntity="Semana" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DiaTrabalhado" positionX="-261" positionY="77" width="128" height="148"/>
-        <element name="Usuario" positionX="-47" positionY="47" width="128" height="193"/>
+        <element name="DiaTrabalhado" positionX="-299" positionY="90" width="128" height="148"/>
         <element name="Semana" positionX="-225" positionY="425" width="128" height="88"/>
+        <element name="Usuario" positionX="-47" positionY="47" width="128" height="193"/>
     </elements>
 </model>
