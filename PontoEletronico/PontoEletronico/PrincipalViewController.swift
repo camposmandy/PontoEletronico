@@ -23,7 +23,7 @@ class PrincipalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        verificaPrimeiroAcesso()
+      //  verificaPrimeiroAcesso()
 
         // Do any additional setup after loading the view.
     }
@@ -34,49 +34,49 @@ class PrincipalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func verificaPrimeiroAcesso() {
-        var userDefault = NSUserDefaults()
-        var acesso = userDefault.objectForKey("Acesso") as? String
-        if acesso == nil {
-            var domingo: Semana
-            domingo = SemanaManager.sharedInstance.novaSemana()
-            domingo.nomeDIa = "Domingo"
-            SemanaManager.sharedInstance.salvar()
-            
-            var segunda: Semana
-            segunda = SemanaManager.sharedInstance.novaSemana()
-            segunda.nomeDIa = "Segunda"
-            SemanaManager.sharedInstance.salvar()
-            
-            var terca: Semana
-            terca = SemanaManager.sharedInstance.novaSemana()
-            terca.nomeDIa = "Terça"
-            SemanaManager.sharedInstance.salvar()
-            
-            var quarta: Semana
-            quarta = SemanaManager.sharedInstance.novaSemana()
-            quarta.nomeDIa = "Quarta"
-            SemanaManager.sharedInstance.salvar()
-            
-            var quinta: Semana
-            quinta = SemanaManager.sharedInstance.novaSemana()
-            quinta.nomeDIa = "Quinta"
-            SemanaManager.sharedInstance.salvar()
-            
-            var sexta: Semana
-            sexta = SemanaManager.sharedInstance.novaSemana()
-            sexta.nomeDIa = "Sexta"
-            SemanaManager.sharedInstance.salvar()
-            
-            var sabado: Semana
-            sabado = SemanaManager.sharedInstance.novaSemana()
-            sabado.nomeDIa = "Sábado"
-            SemanaManager.sharedInstance.salvar()
-            
-            userDefault.setObject("JaAcessou", forKey: "Acesso")
-        }
-    }
+//    
+//    func verificaPrimeiroAcesso() {
+//        var userDefault = NSUserDefaults()
+//        var acesso = userDefault.objectForKey("Acesso") as? String
+//        if acesso == nil {
+//            var domingo: Semana
+//            domingo = SemanaManager.sharedInstance.novaSemana()
+//            domingo.nomeDIa = "Domingo"
+//            SemanaManager.sharedInstance.salvar()
+//            
+//            var segunda: Semana
+//            segunda = SemanaManager.sharedInstance.novaSemana()
+//            segunda.nomeDIa = "Segunda"
+//            SemanaManager.sharedInstance.salvar()
+//            
+//            var terca: Semana
+//            terca = SemanaManager.sharedInstance.novaSemana()
+//            terca.nomeDIa = "Terça"
+//            SemanaManager.sharedInstance.salvar()
+//            
+//            var quarta: Semana
+//            quarta = SemanaManager.sharedInstance.novaSemana()
+//            quarta.nomeDIa = "Quarta"
+//            SemanaManager.sharedInstance.salvar()
+//            
+//            var quinta: Semana
+//            quinta = SemanaManager.sharedInstance.novaSemana()
+//            quinta.nomeDIa = "Quinta"
+//            SemanaManager.sharedInstance.salvar()
+//            
+//            var sexta: Semana
+//            sexta = SemanaManager.sharedInstance.novaSemana()
+//            sexta.nomeDIa = "Sexta"
+//            SemanaManager.sharedInstance.salvar()
+//            
+//            var sabado: Semana
+//            sabado = SemanaManager.sharedInstance.novaSemana()
+//            sabado.nomeDIa = "Sábado"
+//            SemanaManager.sharedInstance.salvar()
+//            
+//            userDefault.setObject("JaAcessou", forKey: "Acesso")
+//        }
+//    }
     
     
     /*

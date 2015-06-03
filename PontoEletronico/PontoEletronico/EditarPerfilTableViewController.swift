@@ -5,10 +5,14 @@
 //  Created by Amanda Guimaraes Campos on 03/06/15.
 //  Copyright (c) 2015 Amanda Guimaraes Campos. All rights reserved.
 //
-
+import CoreData
 import UIKit
 
-class EditarPerfilTableViewController: UITableViewController {
+class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegate {
+    
+    var usuario = Usuario()
+    var semana = Semana()
+    var diaSemana: Array<Semana>?
 
     @IBOutlet weak var nomeUsuario: UITextField!
     @IBOutlet weak var nomeEmpresa: UITextField!
@@ -18,84 +22,97 @@ class EditarPerfilTableViewController: UITableViewController {
     @IBOutlet weak var horaEntradaAlmoco: UITextField!
     @IBOutlet weak var cargaHoraria: UITextField!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nomeUsuario.delegate = self
+        nomeEmpresa.delegate = self
+        horaEntrada.delegate = self
+        horaSaida.delegate = self
+        horaSaidaAlmoco.delegate = self
+        horaEntradaAlmoco.delegate = self
+        cargaHoraria.delegate = self
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+    
+    @IBAction func botaoCancelar(sender: AnyObject){
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+    func verificacaoDosCampos() -> Bool{
+        var aux: Bool?
+        var alert = false
+        var alertMsg = ""
+        var alertT = "Atenção"
+        
+        if(nomeUsuario.text == ""){
+            alertMsg = "- Informe seu nome\n"
+            alert = true
+        }
+        
+        if(nomeEmpresa.text == ""){
+            alertMsg = "- Informe o nome da empresa\n"
+            alert = true
+        }
+        
+        if(horaEntradaAlmoco.text == ""){
+            alertMsg = "- Informe seu horário de saída para o almoço\n"
+            alert = true
+        }
+        if(horaSaidaAlmoco.text == ""){
+            alertMsg = "- Informe seu horário de volta do almoço\n"
+            alert = true
+        }
+        if(cargaHoraria.text == ""){
+            alertMsg = "- Informe a carga horária"
+            alert = true
+        }
+        
+        if(alert == false){
+            alertMsg = "Perfil criado com sucesso!"
+            alertT = "Sucesso"
+            aux = true
+        } else {
+            aux = false
+        }
+        
+        let alerta = UIAlertController(title: alertT, message: alertMsg, preferredStyle: .Alert)
+        let ok = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+            if(aux == true){
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
+        
+        alerta.addAction(ok)
+        self.presentViewController(alerta, animated: true, completion: nil)
+        return aux!
     }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+    
+    @IBAction func salvar(sender: AnyObject){
+        if verificacaoDosCampos(){
+            var dateF = NSDateFormatter()
+            var format = "hh:mm"
+            
+            usuario = UsuarioManager.sharedInstance.novoUsuario()
+            
+            usuario.nome = nomeUsuario.text
+            usuario.nomeEmpresa = nomeEmpresa.text
+            usuario.horaSaidaAlmoco = dateF.dateFromString(horaSaidaAlmoco.text)!
+            usuario.horasAlmoco = (horaEntradaAlmoco.text).toInt()!
+            usuario.cargaHorariaSemanal = (cargaHoraria.text).toInt()!
+            
+           // semana = SemanaManager.sharedInstance.novaSemana()
+            //falta semana...
+            
+            UsuarioManager.sharedInstance.salvar()
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+        /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
