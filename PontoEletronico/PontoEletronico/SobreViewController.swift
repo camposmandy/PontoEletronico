@@ -10,6 +10,9 @@ import UIKit
 
 class SobreViewController: UIViewController {
 
+    @IBOutlet weak var imagemApp: UIImageView!
+    @IBOutlet weak var sobreTV: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

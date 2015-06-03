@@ -10,6 +10,13 @@ import UIKit
 
 class DiarioTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imagem: UIImageView!
+    @IBOutlet weak var dataLbl: UILabel!
+    @IBOutlet weak var totalHoras: UILabel!
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -8,8 +8,19 @@
 
 import UIKit
 
-class DetalhePerfilTableViewController: UITableViewController {
+class EditarPerfilTableViewController: UITableViewController {
 
+    @IBOutlet weak var nomeUsuario: UITextField!
+    @IBOutlet weak var nomeEmpresa: UITextField!
+    @IBOutlet weak var horaEntrada: UITextField!
+    @IBOutlet weak var horaSaida: UITextField!
+    @IBOutlet weak var horaSaidaAlmoco: UITextField!
+    @IBOutlet weak var horaEntradaAlmoco: UITextField!
+    @IBOutlet weak var cargaHoraria: UITextField!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

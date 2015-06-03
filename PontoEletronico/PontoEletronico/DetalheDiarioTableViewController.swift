@@ -9,6 +9,14 @@
 import UIKit
 
 class DetalheDiarioTableViewController: UITableViewController {
+    
+    @IBOutlet weak var diaTrabalhado: UILabel!
+    @IBOutlet weak var horaEntrada: UILabel!
+    @IBOutlet weak var horaSaida: UILabel!
+    @IBOutlet weak var horaSaidaAlmoco: UILabel!
+    @IBOutlet weak var horaVoltaAlmoco: UILabel!
+    @IBOutlet weak var creditoLbl: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,6 +10,16 @@ import UIKit
 
 class PrincipalViewController: UIViewController {
 
+    @IBOutlet weak var graficoUm: JMView!
+    @IBOutlet weak var graficoDois: JMView!
+    @IBOutlet weak var tempoLabel: UILabel!
+    @IBOutlet weak var entrada: UIButton!
+    
+    
+    @IBAction func entrada(sender: AnyObject) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

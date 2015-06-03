@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWP-EV-qzp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWP-EV-qzp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -27,7 +27,7 @@
         <!--Principal-->
         <scene sceneID="j9s-NR-JY4">
             <objects>
-                <viewController id="upF-ho-x7z" sceneMemberID="viewController">
+                <viewController id="upF-ho-x7z" customClass="PrincipalViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T8x-1N-ggU"/>
                         <viewControllerLayoutGuide type="bottom" id="3LQ-I1-3Vd"/>
@@ -62,12 +62,30 @@
                                 <state key="normal" title="Entrada">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="entrada:" destination="upF-ho-x7z" eventType="touchUpInside" id="Tfk-1n-eas"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vLN-c8-DoB" customClass="JMView" customModule="PontoEletronico" customModuleProvider="target">
+                                <rect key="frame" x="433" y="128" width="120" height="135"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Principal" id="b8F-CI-9Rg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="entrada" destination="QVS-P7-mG9" id="06w-EG-X65"/>
+                        <outlet property="graficoDois" destination="vLN-c8-DoB" id="f38-dq-mNB"/>
+                        <outlet property="graficoUm" destination="bkS-5F-fu2" id="6vv-1V-jd7"/>
+                        <outlet property="tempoLabel" destination="E4I-cd-pKY" id="uLI-Ky-MXj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XVY-VX-12e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,13 +94,13 @@
         <!--Diário-->
         <scene sceneID="Xyd-gO-18P">
             <objects>
-                <tableViewController id="iXV-r7-s4f" sceneMemberID="viewController">
+                <tableViewController id="iXV-r7-s4f" customClass="DiarioTableViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="106" sectionHeaderHeight="10" sectionFooterHeight="10" id="g66-7Z-PVu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="106" id="Ej2-Tb-hhK">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="106" id="Ej2-Tb-hhK" customClass="DiarioTableViewCell" customModule="PontoEletronico" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ej2-Tb-hhK" id="WkZ-xP-0A9">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -105,6 +123,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="data" destination="WkZ-xP-0A9" id="X0z-3Q-DFu"/>
+                                    <outlet property="dataLbl" destination="TuX-PW-83Z" id="hhR-VP-loY"/>
+                                    <outlet property="imagem" destination="W2j-sR-xke" id="Yiw-d7-Urm"/>
+                                    <outlet property="totalHoras" destination="fjL-Ez-Qis" id="8ya-wq-bpm"/>
                                     <segue destination="rke-OS-gnM" kind="show" identifier="verDiario" id="FZs-On-yjw"/>
                                 </connections>
                             </tableViewCell>
@@ -125,7 +147,7 @@
         <!--Detalhes-->
         <scene sceneID="0WC-09-eBU">
             <objects>
-                <tableViewController id="rke-OS-gnM" sceneMemberID="viewController">
+                <tableViewController id="rke-OS-gnM" customClass="DetalheDiarioTableViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Zf4-Yv-gO7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,7 +155,7 @@
                         <sections>
                             <tableViewSection headerTitle="Dia Trabalhado" id="Qr6-Ee-oEO">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="puq-99-G5l">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="puq-99-G5l" customClass="DetalheDiarioTableViewCell" customModule="PontoEletronico" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="puq-99-G5l" id="3Xf-dz-TZV">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -290,6 +312,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Detalhes" id="RlK-xh-eIw"/>
+                    <connections>
+                        <outlet property="creditoLbl" destination="bC9-jk-jhP" id="9q3-J7-wkb"/>
+                        <outlet property="diaTrabalhado" destination="AGJ-z1-Okn" id="kwd-io-cwb"/>
+                        <outlet property="horaEntrada" destination="v9U-I4-aTr" id="zfY-ny-IvZ"/>
+                        <outlet property="horaSaida" destination="RFu-X1-Vz9" id="0AG-e1-sMu"/>
+                        <outlet property="horaSaidaAlmoco" destination="Dl8-Qi-znK" id="Xxu-wg-RJ4"/>
+                        <outlet property="horaVoltaAlmoco" destination="iaj-q3-EFk" id="r04-BI-gGp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVM-Wq-hJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,7 +328,7 @@
         <!--Configurações-->
         <scene sceneID="oky-V7-g9K">
             <objects>
-                <tableViewController id="eUc-Dq-b9l" sceneMemberID="viewController">
+                <tableViewController id="eUc-Dq-b9l" customClass="ConfiguracaoTableViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="L2w-Qj-qBx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,7 +350,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="C6R-6s-0QM" kind="show" id="8Tn-yW-wbj"/>
+                                            <segue destination="C6R-6s-0QM" kind="show" identifier="verPerfil" id="8Tn-yW-wbj"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -354,6 +384,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UMW-Jv-E9z" kind="show" identifier="verSobre" id="O7w-DZ-qNd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -404,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fft-Yi-B2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2365" y="1946"/>
+            <point key="canvasLocation" x="2364" y="2022"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="s3W-5v-cLQ">
@@ -626,7 +659,7 @@
                     <navigationItem key="navigationItem" title="Perfil" id="Ib0-G2-AiL">
                         <barButtonItem key="rightBarButtonItem" title="Editar" id="Vmr-22-IEb">
                             <connections>
-                                <segue destination="p2L-fj-uQr" kind="show" id="olM-1X-Ub1"/>
+                                <segue destination="p2L-fj-uQr" kind="show" identifier="verEditarPerfil" id="olM-1X-Ub1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -634,6 +667,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3e-EA-aln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3075" y="1277"/>
+        </scene>
+        <!--Sobre View Controller-->
+        <scene sceneID="22x-Db-60F">
+            <objects>
+                <viewController id="UMW-Jv-E9z" customClass="SobreViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OAe-6L-MBK"/>
+                        <viewControllerLayoutGuide type="bottom" id="zNK-TV-2wS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5dX-hj-Pxg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NvR-h8-NKd">
+                                <rect key="frame" x="179" y="37" width="243" height="193"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lzc-gM-eah">
+                                <rect key="frame" x="90" y="271" width="436" height="243"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imagemApp" destination="NvR-h8-NKd" id="Ez4-LA-Yli"/>
+                        <outlet property="sobreTV" destination="Lzc-gM-eah" id="bZ2-8Q-S0J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XLG-hj-sWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3075" y="2022"/>
         </scene>
         <!--Principal-->
         <scene sceneID="xdW-S9-m7m">
@@ -695,7 +762,7 @@
         <!--Editar Perfil-->
         <scene sceneID="FvN-w5-dZf">
             <objects>
-                <tableViewController id="p2L-fj-uQr" sceneMemberID="viewController">
+                <tableViewController id="p2L-fj-uQr" customClass="EditarPerfilTableViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="n8N-jP-ERC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -803,7 +870,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="8sH-gj-EZZ" kind="show" id="ppR-nC-TV4"/>
+                                            <segue destination="ZwK-bx-BWP" kind="show" identifier="verDiaSemana" id="Ky4-L4-6Ix"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Uej-mK-2GV">
@@ -828,37 +895,63 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Editar Perfil" id="Dih-ZH-Ucs"/>
+                    <connections>
+                        <outlet property="cargaHoraria" destination="xCc-a6-s2Q" id="Rqz-hJ-lrG"/>
+                        <outlet property="horaEntrada" destination="Acd-yl-Nyc" id="8c2-CA-Lx2"/>
+                        <outlet property="horaEntradaAlmoco" destination="0nk-eQ-lbJ" id="6g7-l8-07t"/>
+                        <outlet property="horaSaida" destination="AAN-3R-dyt" id="ksz-xG-Ly5"/>
+                        <outlet property="horaSaidaAlmoco" destination="6QF-5U-ACF" id="yzd-gW-ysS"/>
+                        <outlet property="nomeEmpresa" destination="JgV-5g-JC9" id="XX6-tJ-3dO"/>
+                        <outlet property="nomeUsuario" destination="aW8-SO-fMw" id="2m6-9z-APL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCR-96-KEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3761" y="1277"/>
         </scene>
-        <!--Dias Semana-->
-        <scene sceneID="DtM-hP-nat">
+        <!--Dia Semana Table View Controller-->
+        <scene sceneID="cT0-6F-kvp">
             <objects>
-                <tableViewController id="8sH-gj-EZZ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6Uf-CV-2hU">
+                <viewController id="ZwK-bx-BWP" customClass="DiaSemanaTableViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rho-cZ-OrZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="XCv-Nr-0lW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vdN-bp-1m7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kjZ-b1-qBe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Qd0-6u-e0e" customClass="DiaSemanaTableViewCell" customModule="PontoEletronico" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qd0-6u-e0e" id="sRb-JF-V1B">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-zL-hz3">
+                                                    <rect key="frame" x="21" y="11" width="26" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="diaLbl" destination="wCP-zL-hz3" id="qB9-WR-kxP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GGy-ns-n9y">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GGy-ns-n9y" id="wnQ-bP-0Xp">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="8sH-gj-EZZ" id="H7W-Is-DCG"/>
-                            <outlet property="delegate" destination="8sH-gj-EZZ" id="Y87-IQ-HIe"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Dias Semana" id="4FQ-N9-Idy"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g9T-Wu-40F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ri-9t-w6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4471" y="1277"/>
+            <point key="canvasLocation" x="4528" y="1278"/>
         </scene>
     </scenes>
 </document>
