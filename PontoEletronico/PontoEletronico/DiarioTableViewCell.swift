@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class DiarioTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imagem: UIImageView!
