@@ -10,6 +10,9 @@ import UIKit
 
 class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var btnCancelar: UIBarButtonItem!
+    @IBOutlet weak var btnSalvar: UIBarButtonItem!
+    
     var usuario = Usuario()
     var semana = Semana()
     var diaSemana: Array<Semana>?

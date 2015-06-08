@@ -2,14 +2,14 @@
 //  DiaTrabalhado.swift
 //  PontoEletronico
 //
-//  Created by Amanda Guimaraes Campos on 03/06/15.
+//  Created by João Marcos on 08/06/15.
 //  Copyright (c) 2015 Amanda Guimaraes Campos. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-@objc
+@objc(DiaTrabalhado)
 class DiaTrabalhado: NSManagedObject {
 
     @NSManaged var horaEntrada: NSDate
@@ -20,4 +20,13 @@ class DiaTrabalhado: NSManagedObject {
     @NSManaged var pertenceUsuario: Usuario
     @NSManaged var possuiSemana: NSSet
 
+    func adcSemana(semana: Semana) {
+        var possuiSemana = self.mutableSetValueForKey("possuiSemana")
+        possuiSemana.addObject(semana)
+    }
+    
+    func removerSemana(semana: Semana) {
+        var removerSemana = self.mutableSetValueForKey("possuiSemana")
+        removerSemana.removeObject(semana)
+    }
 }

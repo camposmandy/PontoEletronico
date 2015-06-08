@@ -27,9 +27,9 @@
 		10BF97D11B1CE2290007FCB0 /* DiaTrabalhadoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97D01B1CE2290007FCB0 /* DiaTrabalhadoManager.swift */; };
 		10BF97D31B1CE23A0007FCB0 /* SemanaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97D21B1CE23A0007FCB0 /* SemanaManager.swift */; };
 		10BF97D51B1CE2560007FCB0 /* CoreDataPersistencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97D41B1CE2560007FCB0 /* CoreDataPersistencia.swift */; };
-		10ECF4B31B1F77FE001AE5EA /* Semana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECF4B21B1F77FE001AE5EA /* Semana.swift */; };
-		10ECF4B51B1F77FE001AE5EA /* DiaTrabalhado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECF4B41B1F77FE001AE5EA /* DiaTrabalhado.swift */; };
-		10ECF4B71B1F77FE001AE5EA /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECF4B61B1F77FE001AE5EA /* Usuario.swift */; };
+		170B52C71B2607E500127590 /* DiaTrabalhado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52C61B2607E500127590 /* DiaTrabalhado.swift */; };
+		170B52C91B2607E500127590 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52C81B2607E500127590 /* Usuario.swift */; };
+		170B52CB1B2607E500127590 /* Semana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52CA1B2607E500127590 /* Semana.swift */; };
 		B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB51B1E215E004070A0 /* DesignableView.swift */; };
 		B2B65DB81B1F67EB004070A0 /* DiaSemanaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB71B1F67EB004070A0 /* DiaSemanaTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -69,9 +69,9 @@
 		10BF97D01B1CE2290007FCB0 /* DiaTrabalhadoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaTrabalhadoManager.swift; sourceTree = "<group>"; };
 		10BF97D21B1CE23A0007FCB0 /* SemanaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanaManager.swift; sourceTree = "<group>"; };
 		10BF97D41B1CE2560007FCB0 /* CoreDataPersistencia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataPersistencia.swift; sourceTree = "<group>"; };
-		10ECF4B21B1F77FE001AE5EA /* Semana.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Semana.swift; path = PontoEletronico/Semana.swift; sourceTree = "<group>"; };
-		10ECF4B41B1F77FE001AE5EA /* DiaTrabalhado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaTrabalhado.swift; path = PontoEletronico/DiaTrabalhado.swift; sourceTree = "<group>"; };
-		10ECF4B61B1F77FE001AE5EA /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = PontoEletronico/Usuario.swift; sourceTree = "<group>"; };
+		170B52C61B2607E500127590 /* DiaTrabalhado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaTrabalhado.swift; path = PontoEletronico/DiaTrabalhado.swift; sourceTree = "<group>"; };
+		170B52C81B2607E500127590 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = PontoEletronico/Usuario.swift; sourceTree = "<group>"; };
+		170B52CA1B2607E500127590 /* Semana.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Semana.swift; path = PontoEletronico/Semana.swift; sourceTree = "<group>"; };
 		B2B65DB51B1E215E004070A0 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		B2B65DB71B1F67EB004070A0 /* DiaSemanaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaSemanaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,9 +234,9 @@
 		10BF97D61B1CE8240007FCB0 /* Modelos */ = {
 			isa = PBXGroup;
 			children = (
-				10ECF4B61B1F77FE001AE5EA /* Usuario.swift */,
-				10ECF4B41B1F77FE001AE5EA /* DiaTrabalhado.swift */,
-				10ECF4B21B1F77FE001AE5EA /* Semana.swift */,
+				170B52CA1B2607E500127590 /* Semana.swift */,
+				170B52C81B2607E500127590 /* Usuario.swift */,
+				170B52C61B2607E500127590 /* DiaTrabalhado.swift */,
 			);
 			name = Modelos;
 			path = ..;
@@ -344,20 +344,20 @@
 			files = (
 				10BF97D31B1CE23A0007FCB0 /* SemanaManager.swift in Sources */,
 				10BF97B01B1CDE820007FCB0 /* ViewController.swift in Sources */,
-				10ECF4B71B1F77FE001AE5EA /* Usuario.swift in Sources */,
 				109CC8A51B1F51A600D7E692 /* ConfiguracaoTableViewController.swift in Sources */,
+				170B52CB1B2607E500127590 /* Semana.swift in Sources */,
 				109CC8A11B1F514300D7E692 /* DetalheDiarioTableViewController.swift in Sources */,
 				109CC89C1B1F50BF00D7E692 /* DiarioTableViewController.swift in Sources */,
 				B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */,
-				10ECF4B51B1F77FE001AE5EA /* DiaTrabalhado.swift in Sources */,
 				109CC8B01B1F525D00D7E692 /* EditarPerfilTableViewController.swift in Sources */,
+				170B52C91B2607E500127590 /* Usuario.swift in Sources */,
 				10BF97D11B1CE2290007FCB0 /* DiaTrabalhadoManager.swift in Sources */,
 				B2B65DB81B1F67EB004070A0 /* DiaSemanaTableViewCell.swift in Sources */,
 				10BF97AE1B1CDE820007FCB0 /* PontoEletronico.xcdatamodeld in Sources */,
 				109CC8AA1B1F51F300D7E692 /* PerfilTableViewController.swift in Sources */,
 				109CC8B31B1F52AD00D7E692 /* DiaSemanaTableViewController.swift in Sources */,
 				109CC89E1B1F50DD00D7E692 /* DiarioTableViewCell.swift in Sources */,
-				10ECF4B31B1F77FE001AE5EA /* Semana.swift in Sources */,
+				170B52C71B2607E500127590 /* DiaTrabalhado.swift in Sources */,
 				10BF97CF1B1CE1FE0007FCB0 /* UsuarioManager.swift in Sources */,
 				109CC8B81B1F536800D7E692 /* SobreViewController.swift in Sources */,
 				109CC8981B1F506700D7E692 /* PrincipalViewController.swift in Sources */,
