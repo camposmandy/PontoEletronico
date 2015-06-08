@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWP-EV-qzp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWP-EV-qzp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -832,7 +832,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="87d-VQ-o5C">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
                                                         <!--2015-06-08 18:20:29 +0000-->
                                                     </date>
@@ -856,7 +856,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WP3-jc-HFy">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
                                                         <!--2015-06-08 18:20:29 +0000-->
                                                     </date>
@@ -880,7 +880,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vSD-2t-hSh">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
                                                         <!--2015-06-08 18:20:29 +0000-->
                                                     </date>
@@ -904,7 +904,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="65D-w9-gT3">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
                                                         <!--2015-06-08 18:20:29 +0000-->
                                                     </date>
@@ -961,7 +961,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kjZ-b1-qBe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kjZ-b1-qBe">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -971,13 +971,21 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qd0-6u-e0e" id="sRb-JF-V1B">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-zL-hz3">
-                                                    <rect key="frame" x="21" y="11" width="26" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-zL-hz3">
+                                                    <rect key="frame" x="21" y="11" width="167" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="167" id="idf-uJ-Wdo"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wCP-zL-hz3" firstAttribute="top" secondItem="sRb-JF-V1B" secondAttribute="topMargin" constant="3" id="7Pl-hJ-i5j"/>
+                                                <constraint firstItem="wCP-zL-hz3" firstAttribute="centerY" secondItem="sRb-JF-V1B" secondAttribute="centerY" id="CHt-5V-tGy"/>
+                                                <constraint firstItem="wCP-zL-hz3" firstAttribute="leading" secondItem="sRb-JF-V1B" secondAttribute="leadingMargin" constant="13" id="W6k-oR-ECG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="diaLbl" destination="wCP-zL-hz3" id="qB9-WR-kxP"/>
@@ -987,6 +995,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kjZ-b1-qBe" firstAttribute="bottom" secondItem="vdN-bp-1m7" secondAttribute="bottomMargin" id="7uS-gj-Q5N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kjZ-b1-qBe" secondAttribute="trailing" constant="-16" id="sSF-hD-8KC"/>
+                            <constraint firstItem="kjZ-b1-qBe" firstAttribute="leading" secondItem="vdN-bp-1m7" secondAttribute="leadingMargin" constant="-16" id="xkc-Pw-aMs"/>
+                            <constraint firstItem="kjZ-b1-qBe" firstAttribute="top" secondItem="vdN-bp-1m7" secondAttribute="topMargin" id="xtE-bQ-frb"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="kjZ-b1-qBe" id="FX4-Z3-659"/>

@@ -60,5 +60,10 @@ class DiaSemanaViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        senderViewController?.semanaAux = semana
+    }
+    
 }
 

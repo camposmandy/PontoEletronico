@@ -93,7 +93,7 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
     @IBAction func salvar(sender: AnyObject){
         if verificacaoDosCampos(){
             var dateF = NSDateFormatter()
-            var format = "hh:mm"
+            var format = "HH:mm"
             
             usuario = UsuarioManager.sharedInstance.novoUsuario()
             
@@ -105,17 +105,25 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             usuario.horaSaidaAlmoco = horarioSaidaAlmoco.date
             usuario.horaVoltaAlmoco = horarioVoltaAlmoco.date
             
-           // semana = SemanaManager.sharedInstance.novaSemana()
-            //falta semana...
+            diaSemana = SemanaManager.sharedInstance.Semana()
+            
+            
+            for i in 0..<self.semanaAux.count {
+                if semanaAux[i] == true {
+                    var dia = diaSemana?[i]
+                    usuario.adcSemana(dia!)
+                }
+            }
             
             UsuarioManager.sharedInstance.salvar()
+            //SemanaManager.sharedInstance.salvar()
         }
     }
     
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "cellSemana" {
+        if segue.identifier == "verDiaSemana" {
             if let proxVC = segue.destinationViewController as? DiaSemanaViewController {
                 proxVC.senderViewController = self
             }
