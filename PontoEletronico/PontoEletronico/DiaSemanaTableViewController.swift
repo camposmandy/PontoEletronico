@@ -10,9 +10,6 @@ import UIKit
 
 class DiaSemanaTableViewController: UITableViewController {
     
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,88 +10,40 @@ import UIKit
 
 class PerfilTableViewController: UITableViewController {
 
+    var usuario : Array<Usuario>!
+    var i = 0
+    
+    @IBOutlet weak var nomeEmpresa: UILabel!
+    @IBOutlet weak var nomeUsuario: UILabel!
+    @IBOutlet weak var cargaHoraria: UILabel!
+    @IBOutlet weak var horarioVoltaAlmoco: UILabel!
+    @IBOutlet weak var horarioSaidaAlmoco: UILabel!
+    @IBOutlet weak var horarioSaida: UILabel!
+    @IBOutlet weak var horarioEntrada: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        preencherLabels()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+    func preencherLabels(){
+   usuario = UsuarioManager.sharedInstance.Usuario()
+    
+    var horario = NSDateFormatter()
+        horario.dateFormat = "HH:mm"
+    
+    horarioVoltaAlmoco.text = horario.stringFromDate(usuario[i].horaVoltaAlmoco)
+    horarioSaidaAlmoco.text = horario.stringFromDate(usuario[i].horaSaidaAlmoco)
+    horarioSaida.text = horario.stringFromDate(usuario[i].horaSaida)
+    horarioEntrada.text = horario.stringFromDate(usuario[i].horaEntrada)
+    nomeUsuario.text = usuario[i].nome
+    nomeEmpresa.text = usuario[i].nomeEmpresa
+    cargaHoraria.text = "\(usuario[i].cargaHorariaSemanal)"
+   
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+  }

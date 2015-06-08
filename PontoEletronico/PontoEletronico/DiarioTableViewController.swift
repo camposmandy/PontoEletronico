@@ -20,8 +20,6 @@ class DiarioTableViewController: UITableViewController {
         super.viewDidLoad()
         diario = DiaTrabalhadoManager.sharedInstance.DiasTrabalho()
         
-        
-        
         date = NSDate()
         var dayFormatter = NSDateFormatter()
         dayFormatter.dateFormat = "dd/MM/yyyy"

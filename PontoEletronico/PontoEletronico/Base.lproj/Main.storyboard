@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWP-EV-qzp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -424,7 +425,7 @@
         <!--Perfil-->
         <scene sceneID="s3W-5v-cLQ">
             <objects>
-                <tableViewController id="C6R-6s-0QM" sceneMemberID="viewController">
+                <tableViewController id="C6R-6s-0QM" customClass="PerfilTableViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="E3c-Na-XnF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -645,6 +646,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cargaHoraria" destination="ABj-tp-FU6" id="xSb-jd-5tz"/>
+                        <outlet property="horarioEntrada" destination="BNz-NF-462" id="03I-09-GRF"/>
+                        <outlet property="horarioSaida" destination="i7w-PU-OJU" id="O8y-yr-dcT"/>
+                        <outlet property="horarioSaidaAlmoco" destination="4dK-dt-XkX" id="Cf1-XP-NR6"/>
+                        <outlet property="horarioVoltaAlmoco" destination="yp4-Cn-olm" id="WBr-9g-ZVW"/>
+                        <outlet property="nomeEmpresa" destination="tI4-Mr-T5J" id="3T0-UL-x1v"/>
+                        <outlet property="nomeUsuario" destination="4Zf-N5-rXd" id="E4k-C6-mlx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3e-EA-aln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -780,62 +790,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Horários " id="rpY-Rd-qUB">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="a3b-Gh-YeW">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3b-Gh-YeW" id="krX-cE-GTa">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrada" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Acd-yl-Nyc">
-                                                    <rect key="frame" x="28" y="5" width="141" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lly-K4-y1G">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lly-K4-y1G" id="yKT-gX-FlO">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Saída" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AAN-3R-dyt">
-                                                    <rect key="frame" x="27" y="8" width="143" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gDy-7H-Df8">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gDy-7H-Df8" id="Nlp-fz-W0X">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Saída almoço" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6QF-5U-ACF">
-                                                    <rect key="frame" x="25" y="5" width="148" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wZd-bY-imV">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wZd-bY-imV" id="Ijd-gx-w3G">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrada almoço" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nk-eQ-lbJ">
-                                                    <rect key="frame" x="25" y="8" width="147" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Dias de trabalho" id="qGS-0h-DRy">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="UlP-db-kJM">
@@ -870,6 +824,102 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Horário de Entrada" id="rpY-Rd-qUB">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="a3b-Gh-YeW">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3b-Gh-YeW" id="krX-cE-GTa">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="87d-VQ-o5C">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
+                                                        <!--2015-06-08 18:20:29 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="87d-VQ-o5C" firstAttribute="top" secondItem="krX-cE-GTa" secondAttribute="topMargin" id="9ny-rk-E1B"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="87d-VQ-o5C" secondAttribute="trailing" constant="-8" id="GsN-9e-PQg"/>
+                                                <constraint firstItem="87d-VQ-o5C" firstAttribute="leading" secondItem="krX-cE-GTa" secondAttribute="leadingMargin" constant="-8" id="nfO-iE-fOi"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="87d-VQ-o5C" secondAttribute="bottom" id="xTb-J3-fc9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Horário de Saída" id="8r0-t9-nZF">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="LZV-xK-zEb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LZV-xK-zEb" id="05p-Bn-Hz1">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WP3-jc-HFy">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
+                                                        <!--2015-06-08 18:20:29 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="WP3-jc-HFy" secondAttribute="bottom" id="YC6-fk-fUv"/>
+                                                <constraint firstItem="WP3-jc-HFy" firstAttribute="leading" secondItem="05p-Bn-Hz1" secondAttribute="leadingMargin" constant="-8" id="kMN-c5-aXK"/>
+                                                <constraint firstItem="WP3-jc-HFy" firstAttribute="top" secondItem="05p-Bn-Hz1" secondAttribute="topMargin" id="qQ2-sl-PmH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WP3-jc-HFy" secondAttribute="trailing" constant="-8" id="xFg-Yc-KWY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Saída Almoço" id="KmD-R8-Frd">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="0Si-G7-cDr">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Si-G7-cDr" id="Tz1-5Q-Uee">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vSD-2t-hSh">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
+                                                        <!--2015-06-08 18:20:29 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vSD-2t-hSh" firstAttribute="leading" secondItem="Tz1-5Q-Uee" secondAttribute="leadingMargin" constant="-8" id="P6M-rA-e4q"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vSD-2t-hSh" secondAttribute="bottom" id="PM2-Ve-sz7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vSD-2t-hSh" secondAttribute="trailing" constant="-8" id="Wam-LN-Gkl"/>
+                                                <constraint firstItem="vSD-2t-hSh" firstAttribute="top" secondItem="Tz1-5Q-Uee" secondAttribute="topMargin" id="d7L-KJ-8gj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Volta Almoço" id="IqF-Q5-s3V">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="ggY-rY-T8E">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ggY-rY-T8E" id="7oX-lB-GMb">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="65D-w9-gT3">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
+                                                        <!--2015-06-08 18:20:29 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="65D-w9-gT3" firstAttribute="leading" secondItem="7oX-lB-GMb" secondAttribute="leadingMargin" constant="-8" id="IqM-ud-gWR"/>
+                                                <constraint firstItem="65D-w9-gT3" firstAttribute="top" secondItem="7oX-lB-GMb" secondAttribute="topMargin" id="hYr-T3-cxj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="65D-w9-gT3" secondAttribute="trailing" constant="-8" id="puH-gr-CwO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="65D-w9-gT3" secondAttribute="bottom" id="uot-ZJ-vyq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="p2L-fj-uQr" id="W3Z-et-Bsq"/>
@@ -878,16 +928,19 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Editar Perfil" id="Dih-ZH-Ucs">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Mjq-mk-3mE"/>
-                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="MnJ-My-9r1"/>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="MnJ-My-9r1">
+                            <connections>
+                                <action selector="salvar:" destination="p2L-fj-uQr" id="rrn-B1-qAh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnCancelar" destination="Mjq-mk-3mE" id="XZN-td-IFt"/>
-                        <outlet property="btnSalvar" destination="MnJ-My-9r1" id="Dr7-9P-BST"/>
                         <outlet property="cargaHoraria" destination="xCc-a6-s2Q" id="Rqz-hJ-lrG"/>
-                        <outlet property="horaEntrada" destination="Acd-yl-Nyc" id="8c2-CA-Lx2"/>
-                        <outlet property="horaEntradaAlmoco" destination="0nk-eQ-lbJ" id="6g7-l8-07t"/>
-                        <outlet property="horaSaida" destination="AAN-3R-dyt" id="ksz-xG-Ly5"/>
-                        <outlet property="horaSaidaAlmoco" destination="6QF-5U-ACF" id="yzd-gW-ysS"/>
+                        <outlet property="horarioEntrada" destination="87d-VQ-o5C" id="g6o-zO-AtC"/>
+                        <outlet property="horarioSaida" destination="WP3-jc-HFy" id="3bY-mn-g0Z"/>
+                        <outlet property="horarioSaidaAlmoco" destination="vSD-2t-hSh" id="1SZ-NN-sIc"/>
+                        <outlet property="horarioVoltaAlmoco" destination="65D-w9-gT3" id="1qL-2r-PWm"/>
                         <outlet property="nomeEmpresa" destination="JgV-5g-JC9" id="XX6-tJ-3dO"/>
                         <outlet property="nomeUsuario" destination="aW8-SO-fMw" id="2m6-9z-APL"/>
                     </connections>
@@ -896,10 +949,10 @@
             </objects>
             <point key="canvasLocation" x="3591" y="1239"/>
         </scene>
-        <!--Dia Semana Table View Controller-->
+        <!--Dia Semana View Controller-->
         <scene sceneID="cT0-6F-kvp">
             <objects>
-                <viewController id="ZwK-bx-BWP" customClass="DiaSemanaTableViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZwK-bx-BWP" customClass="DiaSemanaViewController" customModule="PontoEletronico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rho-cZ-OrZ"/>
                         <viewControllerLayoutGuide type="bottom" id="XCv-Nr-0lW"/>
@@ -912,7 +965,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Qd0-6u-e0e" customClass="DiaSemanaTableViewCell" customModule="PontoEletronico" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellSemana" id="Qd0-6u-e0e" customClass="DiaSemanaTableViewCell" customModule="PontoEletronico" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qd0-6u-e0e" id="sRb-JF-V1B">
@@ -935,6 +988,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="kjZ-b1-qBe" id="FX4-Z3-659"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ri-9t-w6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,7 +20,7 @@
         <attribute name="horaEntrada" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="horaSaida" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="horaSaidaAlmoco" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="horasAlmoco" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="horaVoltaAlmoco" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nomeEmpresa" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="possuiDiaTrabalhado" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DiaTrabalhado" inverseName="pertenceUsuario" inverseEntity="DiaTrabalhado" syncable="YES"/>

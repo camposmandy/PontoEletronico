@@ -11,30 +11,27 @@ import UIKit
 class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var btnCancelar: UIBarButtonItem!
-    @IBOutlet weak var btnSalvar: UIBarButtonItem!
     
-    var usuario = Usuario()
-    var semana = Semana()
+    var usuario: Usuario!
+    var semana: Semana!
     var diaSemana: Array<Semana>?
+    var semanaAux = [false, false, false, false, false, false, false]
 
     @IBOutlet weak var nomeUsuario: UITextField!
     @IBOutlet weak var nomeEmpresa: UITextField!
-    @IBOutlet weak var horaEntrada: UITextField!
-    @IBOutlet weak var horaSaida: UITextField!
-    @IBOutlet weak var horaSaidaAlmoco: UITextField!
-    @IBOutlet weak var horaEntradaAlmoco: UITextField!
     @IBOutlet weak var cargaHoraria: UITextField!
+    
+    @IBOutlet weak var horarioEntrada: UIDatePicker!
+    @IBOutlet weak var horarioSaida: UIDatePicker!
+    @IBOutlet weak var horarioSaidaAlmoco: UIDatePicker!
+    @IBOutlet weak var horarioVoltaAlmoco: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nomeUsuario.delegate = self
-        nomeEmpresa.delegate = self
-        horaEntrada.delegate = self
-        horaSaida.delegate = self
-        horaSaidaAlmoco.delegate = self
-        horaEntradaAlmoco.delegate = self
         cargaHoraria.delegate = self
+        
+        verificacaoDosCampos()
 
     }
 
@@ -54,25 +51,22 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
         var alertT = "Atenção"
         
         if(nomeUsuario.text == ""){
-            alertMsg = "- Informe seu nome\n"
+            alertMsg += "- Informe seu nome\n"
             alert = true
         }
         
         if(nomeEmpresa.text == ""){
-            alertMsg = "- Informe o nome da empresa\n"
+            alertMsg += "- Informe o nome da empresa\n"
+            alert = true
+        }
+
+        if(cargaHoraria.text == ""){
+            alertMsg += "- Informe a carga horária"
             alert = true
         }
         
-        if(horaEntradaAlmoco.text == ""){
-            alertMsg = "- Informe seu horário de saída para o almoço\n"
-            alert = true
-        }
-        if(horaSaidaAlmoco.text == ""){
-            alertMsg = "- Informe seu horário de volta do almoço\n"
-            alert = true
-        }
-        if(cargaHoraria.text == ""){
-            alertMsg = "- Informe a carga horária"
+        if semanaAux == [false, false, false, false, false, false, false] {
+            alertMsg += "- Escolha um dia da Semana"
             alert = true
         }
         
@@ -105,9 +99,11 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             
             usuario.nome = nomeUsuario.text
             usuario.nomeEmpresa = nomeEmpresa.text
-            usuario.horaSaidaAlmoco = dateF.dateFromString(horaSaidaAlmoco.text)!
-            usuario.horasAlmoco = (horaEntradaAlmoco.text).toInt()!
             usuario.cargaHorariaSemanal = (cargaHoraria.text).toInt()!
+            usuario.horaEntrada = horarioEntrada.date
+            usuario.horaSaida = horarioSaida.date
+            usuario.horaSaidaAlmoco = horarioSaidaAlmoco.date
+            usuario.horaVoltaAlmoco = horarioVoltaAlmoco.date
             
            // semana = SemanaManager.sharedInstance.novaSemana()
             //falta semana...
@@ -115,14 +111,17 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             UsuarioManager.sharedInstance.salvar()
         }
     }
-        /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "cellSemana" {
+            if let proxVC = segue.destinationViewController as? DiaSemanaViewController {
+                proxVC.senderViewController = self
+            }
+        }
+
     }
-    */
+    
 
 }

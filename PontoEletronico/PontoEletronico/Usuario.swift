@@ -2,7 +2,7 @@
 //  Usuario.swift
 //  PontoEletronico
 //
-//  Created by João Marcos on 08/06/15.
+//  Created by Amanda Guimaraes Campos on 08/06/15.
 //  Copyright (c) 2015 Amanda Guimaraes Campos. All rights reserved.
 //
 
@@ -17,7 +17,7 @@ class Usuario: NSManagedObject {
     @NSManaged var horaEntrada: NSDate
     @NSManaged var horaSaida: NSDate
     @NSManaged var horaSaidaAlmoco: NSDate
-    @NSManaged var horasAlmoco: NSNumber
+    @NSManaged var horaVoltaAlmoco: NSDate
     @NSManaged var nome: String
     @NSManaged var nomeEmpresa: String
     @NSManaged var possuiDiaTrabalhado: NSSet
