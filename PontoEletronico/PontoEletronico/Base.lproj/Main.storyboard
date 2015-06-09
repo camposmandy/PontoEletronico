@@ -522,34 +522,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jfq-zv-pzu" id="CRK-SX-xhI">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saída almoço: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FM-Ou-vOZ">
-                                                    <rect key="frame" x="20" y="8" width="115" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tempo de Almoço:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSa-re-We2">
+                                                    <rect key="frame" x="22" y="11" width="144" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dK-dt-XkX">
-                                                    <rect key="frame" x="154" y="8" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="SiI-Ys-eXv">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SiI-Ys-eXv" id="HZ5-yi-qQm">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entrada almoço: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-Q5-Wpq">
-                                                    <rect key="frame" x="20" y="8" width="131" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yp4-Cn-olm">
-                                                    <rect key="frame" x="164" y="8" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwv-hd-wyA">
+                                                    <rect key="frame" x="180" y="11" width="58" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -650,10 +630,9 @@
                         <outlet property="cargaHoraria" destination="ABj-tp-FU6" id="xSb-jd-5tz"/>
                         <outlet property="horarioEntrada" destination="BNz-NF-462" id="03I-09-GRF"/>
                         <outlet property="horarioSaida" destination="i7w-PU-OJU" id="O8y-yr-dcT"/>
-                        <outlet property="horarioSaidaAlmoco" destination="4dK-dt-XkX" id="Cf1-XP-NR6"/>
-                        <outlet property="horarioVoltaAlmoco" destination="yp4-Cn-olm" id="WBr-9g-ZVW"/>
                         <outlet property="nomeEmpresa" destination="tI4-Mr-T5J" id="3T0-UL-x1v"/>
                         <outlet property="nomeUsuario" destination="4Zf-N5-rXd" id="E4k-C6-mlx"/>
+                        <outlet property="tempoAlmoco" destination="Vwv-hd-wyA" id="UnQ-fZ-pwY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3e-EA-aln" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -814,10 +793,10 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uej-mK-2GV" id="ZXx-3l-dWG">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Carga horária" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xCc-a6-s2Q">
-                                                    <rect key="frame" x="28" y="7" width="125" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Carga horária diária." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xCc-a6-s2Q">
+                                                    <rect key="frame" x="28" y="7" width="173" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -831,8 +810,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3b-Gh-YeW" id="krX-cE-GTa">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="87d-VQ-o5C">
-                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="87d-VQ-o5C">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
                                                         <!--2015-06-08 18:20:29 +0000-->
                                                     </date>
@@ -855,8 +834,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LZV-xK-zEb" id="05p-Bn-Hz1">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WP3-jc-HFy">
-                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WP3-jc-HFy">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="600" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
                                                         <!--2015-06-08 18:20:29 +0000-->
                                                     </date>
@@ -872,50 +851,19 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Saída Almoço" id="KmD-R8-Frd">
+                            <tableViewSection headerTitle="Tempo de Almoço" id="KmD-R8-Frd">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="0Si-G7-cDr">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Si-G7-cDr" id="Tz1-5Q-Uee">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vSD-2t-hSh">
-                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
-                                                        <!--2015-06-08 18:20:29 +0000-->
-                                                    </date>
-                                                </datePicker>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tempo de Almoço em Minutos" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0b5-Ap-Z5D">
+                                                    <rect key="frame" x="8" y="13" width="304" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="vSD-2t-hSh" firstAttribute="leading" secondItem="Tz1-5Q-Uee" secondAttribute="leadingMargin" constant="-8" id="P6M-rA-e4q"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="vSD-2t-hSh" secondAttribute="bottom" id="PM2-Ve-sz7"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vSD-2t-hSh" secondAttribute="trailing" constant="-8" id="Wam-LN-Gkl"/>
-                                                <constraint firstItem="vSD-2t-hSh" firstAttribute="top" secondItem="Tz1-5Q-Uee" secondAttribute="topMargin" id="d7L-KJ-8gj"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Volta Almoço" id="IqF-Q5-s3V">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="ggY-rY-T8E">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ggY-rY-T8E" id="7oX-lB-GMb">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="65D-w9-gT3">
-                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="455480429.45957202">
-                                                        <!--2015-06-08 18:20:29 +0000-->
-                                                    </date>
-                                                </datePicker>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="65D-w9-gT3" firstAttribute="leading" secondItem="7oX-lB-GMb" secondAttribute="leadingMargin" constant="-8" id="IqM-ud-gWR"/>
-                                                <constraint firstItem="65D-w9-gT3" firstAttribute="top" secondItem="7oX-lB-GMb" secondAttribute="topMargin" id="hYr-T3-cxj"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="65D-w9-gT3" secondAttribute="trailing" constant="-8" id="puH-gr-CwO"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="65D-w9-gT3" secondAttribute="bottom" id="uot-ZJ-vyq"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -927,7 +875,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Editar Perfil" id="Dih-ZH-Ucs">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Mjq-mk-3mE"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Mjq-mk-3mE">
+                            <connections>
+                                <action selector="botaoCancelar:" destination="p2L-fj-uQr" id="63g-BL-haw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="MnJ-My-9r1">
                             <connections>
                                 <action selector="salvar:" destination="p2L-fj-uQr" id="rrn-B1-qAh"/>
@@ -939,10 +891,9 @@
                         <outlet property="cargaHoraria" destination="xCc-a6-s2Q" id="Rqz-hJ-lrG"/>
                         <outlet property="horarioEntrada" destination="87d-VQ-o5C" id="g6o-zO-AtC"/>
                         <outlet property="horarioSaida" destination="WP3-jc-HFy" id="3bY-mn-g0Z"/>
-                        <outlet property="horarioSaidaAlmoco" destination="vSD-2t-hSh" id="1SZ-NN-sIc"/>
-                        <outlet property="horarioVoltaAlmoco" destination="65D-w9-gT3" id="1qL-2r-PWm"/>
                         <outlet property="nomeEmpresa" destination="JgV-5g-JC9" id="XX6-tJ-3dO"/>
                         <outlet property="nomeUsuario" destination="aW8-SO-fMw" id="2m6-9z-APL"/>
+                        <outlet property="tempoAlmoco" destination="0b5-Ap-Z5D" id="59E-c4-htr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCR-96-KEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
