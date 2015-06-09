@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWP-EV-qzp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWP-EV-qzp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -628,11 +628,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cargaHoraria" destination="ABj-tp-FU6" id="xSb-jd-5tz"/>
+                        <outlet property="domLbl" destination="gYo-Fp-Zpv" id="4it-TW-1WK"/>
                         <outlet property="horarioEntrada" destination="BNz-NF-462" id="03I-09-GRF"/>
                         <outlet property="horarioSaida" destination="i7w-PU-OJU" id="O8y-yr-dcT"/>
                         <outlet property="nomeEmpresa" destination="tI4-Mr-T5J" id="3T0-UL-x1v"/>
                         <outlet property="nomeUsuario" destination="4Zf-N5-rXd" id="E4k-C6-mlx"/>
+                        <outlet property="quaLbl" destination="6pN-6l-JCf" id="0El-Cy-dZ6"/>
+                        <outlet property="quinLbl" destination="jHx-nu-b8X" id="IOs-g5-8KF"/>
+                        <outlet property="sabLbl" destination="WH8-Rb-erc" id="Nif-kY-rsD"/>
+                        <outlet property="segLbl" destination="7m2-eu-QJM" id="2lL-Ga-Ge1"/>
+                        <outlet property="sexLbl" destination="epf-R5-vtw" id="9KV-3M-qAj"/>
                         <outlet property="tempoAlmoco" destination="Vwv-hd-wyA" id="UnQ-fZ-pwY"/>
+                        <outlet property="terLbl" destination="C6a-St-qSv" id="ndY-B6-9kx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3e-EA-aln" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -30,7 +30,6 @@ class PrincipalViewController: UIViewController {
         
         verificaPrimeiroAcesso()
        
-
         // Do any additional setup after loading the view.
     }
     
