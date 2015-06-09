@@ -53,7 +53,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4I-cd-pKY">
-                                <rect key="frame" x="267" y="344" width="67" height="21"/>
+                                <rect key="frame" x="87" y="344" width="247" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -76,6 +76,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ooooooi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dM-JJ-M25">
+                                <rect key="frame" x="16" y="315" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -85,6 +91,7 @@
                         <outlet property="entrada" destination="QVS-P7-mG9" id="06w-EG-X65"/>
                         <outlet property="graficoDois" destination="vLN-c8-DoB" id="f38-dq-mNB"/>
                         <outlet property="graficoUm" destination="bkS-5F-fu2" id="6vv-1V-jd7"/>
+                        <outlet property="tempoAlmoco" destination="6dM-JJ-M25" id="HYK-gw-5Ha"/>
                         <outlet property="tempoLabel" destination="E4I-cd-pKY" id="uLI-Ky-MXj"/>
                     </connections>
                 </viewController>

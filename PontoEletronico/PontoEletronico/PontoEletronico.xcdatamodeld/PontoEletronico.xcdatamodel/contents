@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="DiaTrabalhado" representedClassName="DiaTrabalhado" syncable="YES">
         <attribute name="horaEntrada" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="horaSaida" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="horaSaidaAlmoco" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="horaVoltaAlmoco" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="tempoAlmoco" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="totalHoras" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalHoras" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <relationship name="pertenceUsuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="possuiDiaTrabalhado" inverseEntity="Usuario" syncable="YES"/>
         <relationship name="possuiSemana" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Semana" inverseName="pertenceDiaTrabalhado" inverseEntity="Semana" syncable="YES"/>
     </entity>
@@ -14,7 +16,7 @@
         <relationship name="pertenceUsuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="possuiSemana" inverseEntity="Usuario" syncable="YES"/>
     </entity>
     <entity name="Usuario" representedClassName="Usuario" syncable="YES">
-        <attribute name="bancoHoras" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="bancoHoras" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="cargaHorariaSemanal" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="horaEntrada" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="horaSaida" optional="YES" attributeType="Date" syncable="YES"/>
@@ -25,8 +27,8 @@
         <relationship name="possuiSemana" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Semana" inverseName="pertenceUsuario" inverseEntity="Semana" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DiaTrabalhado" positionX="-299" positionY="90" width="128" height="133"/>
-        <element name="Semana" positionX="-218" positionY="434" width="128" height="88"/>
-        <element name="Usuario" positionX="-47" positionY="47" width="128" height="178"/>
+        <element name="DiaTrabalhado" positionX="-452" positionY="92" width="128" height="163"/>
+        <element name="Semana" positionX="-216" positionY="216" width="128" height="88"/>
+        <element name="Usuario" positionX="16" positionY="47" width="128" height="178"/>
     </elements>
 </model>

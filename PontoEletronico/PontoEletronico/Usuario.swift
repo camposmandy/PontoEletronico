@@ -2,14 +2,14 @@
 //  Usuario.swift
 //  PontoEletronico
 //
-//  Created by Leonardo Rodrigues de Morais Brunassi on 09/06/15.
+//  Created by João Marcos on 09/06/15.
 //  Copyright (c) 2015 Amanda Guimaraes Campos. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-@objc (Usuario)
+@objc(Usuario)
 class Usuario: NSManagedObject {
 
     @NSManaged var bancoHoras: NSNumber
@@ -21,8 +21,7 @@ class Usuario: NSManagedObject {
     @NSManaged var tempoAlmoco: NSNumber
     @NSManaged var possuiDiaTrabalhado: NSSet
     @NSManaged var possuiSemana: NSSet
-    
-    
+
     func adcDiaTrabalhado(diaTrabalhado: DiaTrabalhado) {
         var possuiDiaTrabalhado = self.mutableSetValueForKey("possuiDiaTrabalhado")
         possuiDiaTrabalhado.addObject(diaTrabalhado)
