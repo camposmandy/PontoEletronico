@@ -20,11 +20,9 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
     @IBOutlet weak var nomeUsuario: UITextField!
     @IBOutlet weak var nomeEmpresa: UITextField!
     @IBOutlet weak var cargaHoraria: UITextField!
-    
+    @IBOutlet weak var tempoAlmoco: UITextField!
     @IBOutlet weak var horarioEntrada: UIDatePicker!
     @IBOutlet weak var horarioSaida: UIDatePicker!
-    @IBOutlet weak var horarioSaidaAlmoco: UIDatePicker!
-    @IBOutlet weak var horarioVoltaAlmoco: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +59,7 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
         }
 
         if(cargaHoraria.text == ""){
-            alertMsg += "- Informe a carga horária"
+            alertMsg += "- Informe a carga horária\n"
             alert = true
         }
         
@@ -102,8 +100,9 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             usuario.cargaHorariaSemanal = (cargaHoraria.text).toInt()!
             usuario.horaEntrada = horarioEntrada.date
             usuario.horaSaida = horarioSaida.date
-            usuario.horaSaidaAlmoco = horarioSaidaAlmoco.date
-            usuario.horaVoltaAlmoco = horarioVoltaAlmoco.date
+            //usuario.horaSaidaAlmoco = horarioSaidaAlmoco.date
+            //usuario.horaVoltaAlmoco = horarioVoltaAlmoco.date
+            usuario.tempoAlmoco = (tempoAlmoco.text as NSString).integerValue
             
             diaSemana = SemanaManager.sharedInstance.Semana()
             

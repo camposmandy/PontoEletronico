@@ -16,8 +16,7 @@ class PerfilTableViewController: UITableViewController {
     @IBOutlet weak var nomeEmpresa: UILabel!
     @IBOutlet weak var nomeUsuario: UILabel!
     @IBOutlet weak var cargaHoraria: UILabel!
-    @IBOutlet weak var horarioVoltaAlmoco: UILabel!
-    @IBOutlet weak var horarioSaidaAlmoco: UILabel!
+    @IBOutlet weak var tempoAlmoco: UILabel!
     @IBOutlet weak var horarioSaida: UILabel!
     @IBOutlet weak var horarioEntrada: UILabel!
     
@@ -36,9 +35,9 @@ class PerfilTableViewController: UITableViewController {
     
     var horario = NSDateFormatter()
         horario.dateFormat = "HH:mm"
-    
-    horarioVoltaAlmoco.text = horario.stringFromDate(usuario[i].horaVoltaAlmoco)
-    horarioSaidaAlmoco.text = horario.stringFromDate(usuario[i].horaSaidaAlmoco)
+        
+        
+    tempoAlmoco.text = "\(usuario[i].tempoAlmoco)"
     horarioSaida.text = horario.stringFromDate(usuario[i].horaSaida)
     horarioEntrada.text = horario.stringFromDate(usuario[i].horaEntrada)
     nomeUsuario.text = usuario[i].nome

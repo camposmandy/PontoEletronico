@@ -27,12 +27,12 @@
 		10BF97D11B1CE2290007FCB0 /* DiaTrabalhadoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97D01B1CE2290007FCB0 /* DiaTrabalhadoManager.swift */; };
 		10BF97D31B1CE23A0007FCB0 /* SemanaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97D21B1CE23A0007FCB0 /* SemanaManager.swift */; };
 		10BF97D51B1CE2560007FCB0 /* CoreDataPersistencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97D41B1CE2560007FCB0 /* CoreDataPersistencia.swift */; };
-		10D19E2D1B261880005F31B9 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D19E2C1B261880005F31B9 /* Usuario.swift */; };
 		10D19E2F1B2624F8005F31B9 /* DiaSemanaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D19E2E1B2624F8005F31B9 /* DiaSemanaViewController.swift */; };
-		170B52C71B2607E500127590 /* DiaTrabalhado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52C61B2607E500127590 /* DiaTrabalhado.swift */; };
 		170B52CB1B2607E500127590 /* Semana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52CA1B2607E500127590 /* Semana.swift */; };
 		B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB51B1E215E004070A0 /* DesignableView.swift */; };
 		B2B65DB81B1F67EB004070A0 /* DiaSemanaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB71B1F67EB004070A0 /* DiaSemanaTableViewCell.swift */; };
+		B2B65DBA1B274F2F004070A0 /* DiaTrabalhado.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB91B274F2F004070A0 /* DiaTrabalhado.swift */; };
+		B2B65DBC1B274F30004070A0 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DBB1B274F30004070A0 /* Usuario.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,12 +70,12 @@
 		10BF97D01B1CE2290007FCB0 /* DiaTrabalhadoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaTrabalhadoManager.swift; sourceTree = "<group>"; };
 		10BF97D21B1CE23A0007FCB0 /* SemanaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanaManager.swift; sourceTree = "<group>"; };
 		10BF97D41B1CE2560007FCB0 /* CoreDataPersistencia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataPersistencia.swift; sourceTree = "<group>"; };
-		10D19E2C1B261880005F31B9 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = PontoEletronico/Usuario.swift; sourceTree = "<group>"; };
 		10D19E2E1B2624F8005F31B9 /* DiaSemanaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaSemanaViewController.swift; path = PontoEletronico/DiaSemanaViewController.swift; sourceTree = "<group>"; };
-		170B52C61B2607E500127590 /* DiaTrabalhado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaTrabalhado.swift; path = PontoEletronico/DiaTrabalhado.swift; sourceTree = "<group>"; };
 		170B52CA1B2607E500127590 /* Semana.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Semana.swift; path = PontoEletronico/Semana.swift; sourceTree = "<group>"; };
 		B2B65DB51B1E215E004070A0 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		B2B65DB71B1F67EB004070A0 /* DiaSemanaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaSemanaTableViewCell.swift; sourceTree = "<group>"; };
+		B2B65DB91B274F2F004070A0 /* DiaTrabalhado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaTrabalhado.swift; sourceTree = "<group>"; };
+		B2B65DBB1B274F30004070A0 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,8 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				170B52CA1B2607E500127590 /* Semana.swift */,
-				170B52C61B2607E500127590 /* DiaTrabalhado.swift */,
-				10D19E2C1B261880005F31B9 /* Usuario.swift */,
+				B2B65DBB1B274F30004070A0 /* Usuario.swift */,
+				B2B65DB91B274F2F004070A0 /* DiaTrabalhado.swift */,
 			);
 			name = Modelos;
 			path = ..;
@@ -347,21 +347,21 @@
 			files = (
 				10BF97D31B1CE23A0007FCB0 /* SemanaManager.swift in Sources */,
 				10BF97B01B1CDE820007FCB0 /* ViewController.swift in Sources */,
+				B2B65DBA1B274F2F004070A0 /* DiaTrabalhado.swift in Sources */,
 				109CC8A51B1F51A600D7E692 /* ConfiguracaoTableViewController.swift in Sources */,
 				170B52CB1B2607E500127590 /* Semana.swift in Sources */,
 				109CC8A11B1F514300D7E692 /* DetalheDiarioTableViewController.swift in Sources */,
 				109CC89C1B1F50BF00D7E692 /* DiarioTableViewController.swift in Sources */,
 				B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */,
+				B2B65DBC1B274F30004070A0 /* Usuario.swift in Sources */,
 				109CC8B01B1F525D00D7E692 /* EditarPerfilTableViewController.swift in Sources */,
 				10BF97D11B1CE2290007FCB0 /* DiaTrabalhadoManager.swift in Sources */,
-				10D19E2D1B261880005F31B9 /* Usuario.swift in Sources */,
 				10D19E2F1B2624F8005F31B9 /* DiaSemanaViewController.swift in Sources */,
 				B2B65DB81B1F67EB004070A0 /* DiaSemanaTableViewCell.swift in Sources */,
 				10BF97AE1B1CDE820007FCB0 /* PontoEletronico.xcdatamodeld in Sources */,
 				109CC8AA1B1F51F300D7E692 /* PerfilTableViewController.swift in Sources */,
 				109CC8B31B1F52AD00D7E692 /* DiaSemanaTableViewController.swift in Sources */,
 				109CC89E1B1F50DD00D7E692 /* DiarioTableViewCell.swift in Sources */,
-				170B52C71B2607E500127590 /* DiaTrabalhado.swift in Sources */,
 				10BF97CF1B1CE1FE0007FCB0 /* UsuarioManager.swift in Sources */,
 				109CC8B81B1F536800D7E692 /* SobreViewController.swift in Sources */,
 				109CC8981B1F506700D7E692 /* PrincipalViewController.swift in Sources */,
