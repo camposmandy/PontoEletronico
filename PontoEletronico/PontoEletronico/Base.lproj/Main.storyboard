@@ -875,7 +875,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Editar Perfil" id="Dih-ZH-Ucs">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Mjq-mk-3mE"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Mjq-mk-3mE">
+                            <connections>
+                                <action selector="botaoCancelar:" destination="p2L-fj-uQr" id="63g-BL-haw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="MnJ-My-9r1">
                             <connections>
                                 <action selector="salvar:" destination="p2L-fj-uQr" id="rrn-B1-qAh"/>

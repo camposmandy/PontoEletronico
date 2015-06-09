@@ -29,6 +29,10 @@ class PerfilTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
+    }
 
     func preencherLabels(){
    usuario = UsuarioManager.sharedInstance.Usuario()
