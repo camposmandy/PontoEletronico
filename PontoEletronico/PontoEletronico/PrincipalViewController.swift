@@ -10,6 +10,9 @@ import UIKit
 
 class PrincipalViewController: UIViewController {
 
+    var tempo = NSTimer()
+    var inicioTempo = NSTimeInterval()
+    
     @IBOutlet weak var graficoUm: JMView!
     @IBOutlet weak var graficoDois: JMView!
     @IBOutlet weak var tempoLabel: UILabel!
@@ -17,6 +20,8 @@ class PrincipalViewController: UIViewController {
     
     
     @IBAction func entrada(sender: AnyObject) {
+        tempo = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempo", userInfo: nil, repeats: true)
+        inicioTempo = NSDate.timeIntervalSinceReferenceDate()
     }
     
     
@@ -24,6 +29,7 @@ class PrincipalViewController: UIViewController {
         super.viewDidLoad()
         
         verificaPrimeiroAcesso()
+       
 
         // Do any additional setup after loading the view.
     }
@@ -84,6 +90,26 @@ class PrincipalViewController: UIViewController {
             
             userDefault.setObject("JaAcessou", forKey: "Acesso")
         }
+    }
+    
+    func atualizaTempo(){
+        var tempoAtual = NSDate.timeIntervalSinceReferenceDate() as NSTimeInterval
+        var tempoDecorrido = tempoAtual - inicioTempo
+        
+        let minutos = UInt8(tempoDecorrido/60.0)
+        tempoDecorrido -= (NSTimeInterval(minutos)*60)
+        
+        let segundos = UInt8(tempoDecorrido)
+        tempoDecorrido -= NSTimeInterval(segundos)
+        
+        let fracao = UInt8(tempoDecorrido*100)
+        
+        let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
+        let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
+        let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
+        
+        tempoLabel.text = "\(strMinutos):\(strSegundos):\(strFracao)"
+
     }
  
     /*
