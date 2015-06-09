@@ -369,6 +369,15 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bq9-J5-ufZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="btnFeedBack:" destination="eUc-Dq-b9l" eventType="touchUpInside" id="Mgs-T3-rJ9"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -417,6 +426,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Configurações" id="tez-ul-6fZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="btnFeedBack" destination="bq9-J5-ufZ" id="pfS-G6-u7e"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="er3-Iu-yOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
