@@ -2,7 +2,7 @@
 //  DiaTrabalhado.swift
 //  PontoEletronico
 //
-//  Created by João Marcos on 09/06/15.
+//  Created by João Marcos on 10/06/15.
 //  Copyright (c) 2015 Amanda Guimaraes Campos. All rights reserved.
 //
 
@@ -14,10 +14,10 @@ class DiaTrabalhado: NSManagedObject {
 
     @NSManaged var horaEntrada: NSDate
     @NSManaged var horaSaida: NSDate
-    @NSManaged var tempoAlmoco: NSNumber
-    @NSManaged var totalHoras: NSNumber
     @NSManaged var horaSaidaAlmoco: NSDate
     @NSManaged var horaVoltaAlmoco: NSDate
+    @NSManaged var tempoAlmoco: NSNumber
+    @NSManaged var totalHoras: NSNumber
     @NSManaged var pertenceUsuario: Usuario
     @NSManaged var possuiSemana: NSSet
 

@@ -62,15 +62,11 @@ class PrincipalViewController: UIViewController {
             diaTrabalhado?.horaSaidaAlmoco = horaSaidaAlmoco
             diaTrabalhado?.horaVoltaAlmoco = horaVoltaAlmoco
             diaTrabalhado?.horaSaida = horaSaida
-//            diaTrabalhado?.tempoAlmoco = tempoDeAlmoco
-//            diaTrabalhado?.totalHoras = tempoTrabalhado
+            diaTrabalhado?.tempoAlmoco = tempoDeAlmoco/60
+            diaTrabalhado?.totalHoras = tempoTrabalhado/60
             
             DiaTrabalhadoManager.sharedInstance.salvar()
-            
-            
-            
-            
-            
+
             let alerta = UIAlertController(title: "Fim", message: "...", preferredStyle: .Alert)
             let ok = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
                 self.navigationController?.popViewControllerAnimated(true)
@@ -95,10 +91,7 @@ class PrincipalViewController: UIViewController {
         super.viewDidLoad()
         
         verificaPrimeiroAcesso()
-       
-        // Do any additional setup after loading the view.
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = false
@@ -106,9 +99,7 @@ class PrincipalViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
     
     func verificaPrimeiroAcesso() {
         var userDefault = NSUserDefaults()
@@ -160,17 +151,18 @@ class PrincipalViewController: UIViewController {
     func atualizaTempoTotal(){
         var tempoAtual = NSDate.timeIntervalSinceReferenceDate() as NSTimeInterval
         tempoTrabalhado = tempoAtual - inicioTempo
+        var auxTempoTrabalhado = tempoTrabalhado
         
-        let horas = UInt8(tempoTrabalhado/3600.0)
-        tempoTrabalhado -= (NSTimeInterval(horas)*3600)
+        let horas = UInt8(auxTempoTrabalhado/3600.0)
+        auxTempoTrabalhado -= (NSTimeInterval(horas)*3600)
         
-        let minutos = UInt8(tempoTrabalhado/60.0)
-        tempoTrabalhado -= (NSTimeInterval(minutos)*60)
+        let minutos = UInt8(auxTempoTrabalhado/60.0)
+        auxTempoTrabalhado -= (NSTimeInterval(minutos)*60)
         
-        let segundos = UInt8(tempoTrabalhado)
-        tempoTrabalhado -= NSTimeInterval(segundos)
+        let segundos = UInt8(auxTempoTrabalhado)
+        auxTempoTrabalhado -= NSTimeInterval(segundos)
         
-        let fracao = UInt8(tempoTrabalhado*100)
+        let fracao = UInt8(auxTempoTrabalhado*100)
         
         let strHoras = horas > 9 ? String(horas):"0" + String(horas)
         let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
@@ -183,17 +175,18 @@ class PrincipalViewController: UIViewController {
     func atualizaTempoAlmoco(){
         var tempoAtual = NSDate.timeIntervalSinceReferenceDate() as NSTimeInterval
         tempoDeAlmoco = tempoAtual - inicioTempoAlmoco
+        var auxTempoDeAlmoco = tempoDeAlmoco
         
-        let horas = UInt8(tempoDeAlmoco/3600.0)
-        tempoDeAlmoco -= (NSTimeInterval(horas)*3600)
+        let horas = UInt8(auxTempoDeAlmoco/3600.0)
+        auxTempoDeAlmoco -= (NSTimeInterval(horas)*3600)
         
-        let minutos = UInt8(tempoDeAlmoco/60.0)
-        tempoDeAlmoco -= (NSTimeInterval(minutos)*60)
+        let minutos = UInt8(auxTempoDeAlmoco/60.0)
+        auxTempoDeAlmoco -= (NSTimeInterval(minutos)*60)
         
-        let segundos = UInt8(tempoDeAlmoco)
-        tempoDeAlmoco -= NSTimeInterval(segundos)
+        let segundos = UInt8(auxTempoDeAlmoco)
+        auxTempoDeAlmoco -= NSTimeInterval(segundos)
         
-        let fracao = UInt8(tempoDeAlmoco*100)
+        let fracao = UInt8(auxTempoDeAlmoco*100)
         
         let strHoras = horas > 9 ? String(horas):"0" + String(horas)
         let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
@@ -202,15 +195,4 @@ class PrincipalViewController: UIViewController {
         
         tempoAlmoco.text = "\(strHoras):\(strMinutos):\(strSegundos):\(strFracao)"
     }
- 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
