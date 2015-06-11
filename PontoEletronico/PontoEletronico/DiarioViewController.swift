@@ -96,4 +96,12 @@ class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDa
         diasTrabalhados = DiaTrabalhadoManager.sharedInstance.DiasTrabalho()
         tableView.reloadData()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detalhesDiaTrab" {
+            let DetalheVC = segue.destinationViewController as! DetalheDiarioTableViewController
+            let cell = sender as? UITableViewCell
+            DetalheVC.diaTrab = diasTrabalhados?[tableView.indexPathForCell(cell!)!.row]
+        }
+    }
 }
