@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1066ABBF1B29F5FA00AD3D9B /* ViewCustomizada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066ABBE1B29F5FA00AD3D9B /* ViewCustomizada.swift */; };
 		109CC8981B1F506700D7E692 /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109CC8971B1F506700D7E692 /* PrincipalViewController.swift */; };
 		109CC89E1B1F50DD00D7E692 /* DiarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109CC89D1B1F50DD00D7E692 /* DiarioTableViewCell.swift */; };
 		109CC8A11B1F514300D7E692 /* DetalheDiarioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109CC8A01B1F514300D7E692 /* DetalheDiarioTableViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1066ABBE1B29F5FA00AD3D9B /* ViewCustomizada.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCustomizada.swift; sourceTree = "<group>"; };
 		109CC8971B1F506700D7E692 /* PrincipalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrincipalViewController.swift; path = PontoEletronico/PrincipalViewController.swift; sourceTree = "<group>"; };
 		109CC89D1B1F50DD00D7E692 /* DiarioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiarioTableViewCell.swift; path = PontoEletronico/DiarioTableViewCell.swift; sourceTree = "<group>"; };
 		109CC8A01B1F514300D7E692 /* DetalheDiarioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetalheDiarioTableViewController.swift; path = PontoEletronico/DetalheDiarioTableViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				109CC8971B1F506700D7E692 /* PrincipalViewController.swift */,
+				1066ABBE1B29F5FA00AD3D9B /* ViewCustomizada.swift */,
 			);
 			name = Principal;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				10D19E2F1B2624F8005F31B9 /* DiaSemanaViewController.swift in Sources */,
 				B2B65DB81B1F67EB004070A0 /* DiaSemanaTableViewCell.swift in Sources */,
 				10BF97AE1B1CDE820007FCB0 /* PontoEletronico.xcdatamodeld in Sources */,
+				1066ABBF1B29F5FA00AD3D9B /* ViewCustomizada.swift in Sources */,
 				109CC8AA1B1F51F300D7E692 /* PerfilTableViewController.swift in Sources */,
 				109CC8B31B1F52AD00D7E692 /* DiaSemanaTableViewController.swift in Sources */,
 				109CC89E1B1F50DD00D7E692 /* DiarioTableViewCell.swift in Sources */,

@@ -50,14 +50,14 @@ class PerfilTableViewController: UITableViewController {
     var horario = NSDateFormatter()
         horario.dateFormat = "HH:mm"
     var minhaCor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
-        
-    tempoAlmoco.text = "\(usuario[i].tempoAlmoco)"
-    horarioSaida.text = horario.stringFromDate(usuario[i].horaSaida)
-    horarioEntrada.text = horario.stringFromDate(usuario[i].horaEntrada)
-    nomeUsuario.text = usuario[i].nome
-    nomeEmpresa.text = usuario[i].nomeEmpresa
-    cargaHoraria.text = "\(usuario[i].cargaHorariaSemanal)"
-        
+    
+        tempoAlmoco.text = "\(usuario[i].tempoAlmoco)"
+        horarioSaida.text = horario.stringFromDate(usuario[i].horaSaida)
+        horarioEntrada.text = horario.stringFromDate(usuario[i].horaEntrada)
+        nomeUsuario.text = usuario[i].nome
+        nomeEmpresa.text = usuario[i].nomeEmpresa
+        cargaHoraria.text = "\(usuario[i].cargaHorariaSemanal)"
+            
         var dia = usuario[i].possuiSemana.allObjects as NSArray
         for i in 0...dia.count-1 {
             var nomeDIa = (dia.objectAtIndex(i) as! Semana).nomeDIa
@@ -85,4 +85,5 @@ class PerfilTableViewController: UITableViewController {
             }
         }
     }
+
 }

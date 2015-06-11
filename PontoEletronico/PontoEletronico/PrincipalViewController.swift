@@ -28,12 +28,10 @@ class PrincipalViewController: UIViewController {
     var entradas = ["Entrada", "Saída Almoço", "Volta Almoço", "Saída"]
     var e = 0
     
-    @IBOutlet weak var graficoUm: JMView!
-    @IBOutlet weak var graficoDois: JMView!
     @IBOutlet weak var tempoLabel: UILabel!
     @IBOutlet weak var tempoAlmoco: UILabel!
     @IBOutlet weak var entrada: UIButton!
-    
+    @IBOutlet weak var ViewPizza: ViewCustomizada!
     
     @IBAction func entrada(sender: AnyObject) {
 
@@ -42,11 +40,13 @@ class PrincipalViewController: UIViewController {
             horaEntrada = NSDate()
             tempoTotal = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempoTotal", userInfo: nil, repeats: true)
             inicioTempo = horaEntrada.timeIntervalSinceReferenceDate
+            
         case 1:
             horaSaidaAlmoco = NSDate()
             tempoTotal.invalidate()
             tempoAlm = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempoAlmoco", userInfo: nil, repeats: true)
             inicioTempoAlmoco = horaSaidaAlmoco.timeIntervalSinceReferenceDate
+        
         case 2:
             horaVoltaAlmoco = NSDate()
             tempoAlm.invalidate()
@@ -168,6 +168,8 @@ class PrincipalViewController: UIViewController {
         let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
         let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
         let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
+        
+        var percPizza = (tempoTrabalhado*100)
         
         tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos):\(strFracao)"
     }

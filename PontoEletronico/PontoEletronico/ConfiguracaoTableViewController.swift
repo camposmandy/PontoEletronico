@@ -11,23 +11,28 @@ import MessageUI
 
 class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
+    let cancelar = UIAlertAction(title: "Cancel", style: .Cancel) { action in }
+    var usuarioAux : Usuario!
+    
     @IBOutlet weak var btnFeedBack: UIButton!
     
     @IBAction func btnFeedBack(sender: AnyObject) {
         alerta()
     }
     
+    @IBAction func btnApagar(sender: AnyObject) {
+        alertaDiasTrabalhados()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
     func alerta() {
         
         let nomeAlerta: UIAlertController = UIAlertController(title: "Caso queira uma resposta, favor escolher E-Mail", message: "", preferredStyle: .ActionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-        }
-        nomeAlerta.addAction(cancelAction)
+
+        nomeAlerta.addAction(cancelar)
         
         let appStore: UIAlertAction = UIAlertAction (title: "App Store", style: .Default) { action -> Void in
             
@@ -50,9 +55,20 @@ class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewC
         
         self.presentViewController(nomeAlerta, animated: true, completion: nil)
     }
+    
+    func alertaDiasTrabalhados(){
+        let alert: UIAlertController = UIAlertController(title: "Atenção", message: "Tem certeza que deseja apagar tudo?", preferredStyle: .Alert)
+        let ok: UIAlertAction = UIAlertAction(title: "OK", style: .Default) { action -> Void in
+            DiaTrabalhadoManager.sharedInstance.deletarTudo()
+            DiaTrabalhadoManager.sharedInstance.salvar()
+        }
+        
+        alert.addAction(ok)
+        alert.addAction(cancelar)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
-    
-    
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
@@ -75,9 +91,6 @@ class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewC
         controller.dismissViewControllerAnimated(true, completion: nil)
         
     }
-
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -37,4 +37,12 @@ class DiaTrabalhadoManager {
     func deletar(semana: PontoEletronico.DiaTrabalhado) {
         coreData.managedObjectContext?.deleteObject(semana)
     }
+    
+    func deletarTudo() {
+        let todosObjetos: Array<PontoEletronico.DiaTrabalhado> = self.DiasTrabalho()!
+        
+        for item : PontoEletronico.DiaTrabalhado in todosObjetos as Array<PontoEletronico.DiaTrabalhado> {
+            self.deletar(item)
+        }
+    }
 }
