@@ -94,10 +94,12 @@ class PrincipalViewController: UIViewController {
         
         verificaPrimeiroAcesso()
         usuarios = UsuarioManager.sharedInstance.Usuario()
-        usuario = usuarios?[0]
     }
     
     override func viewWillAppear(animated: Bool) {
+        if usuarios?.count == 0 {
+            usuario = usuarios?[0]
+        }
         self.tabBarController?.tabBar.hidden = false
     }
     
@@ -174,7 +176,8 @@ class PrincipalViewController: UIViewController {
         let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
         let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
         
-        var percPizza = (tempoTrabalhado*100)
+        var percPizza = (tempoTrabalhado*100)/cargaHoraria
+        ViewPizza.piePercent = percPizza
         
         tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos):\(strFracao)"
     }
