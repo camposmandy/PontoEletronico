@@ -29,8 +29,6 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
         
         cargaHoraria.delegate = self
         
-        verificacaoDosCampos()
-        
         self.tabBarController?.tabBar.hidden = true
 
     }

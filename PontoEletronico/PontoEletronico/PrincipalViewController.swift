@@ -11,6 +11,7 @@ import UIKit
 class PrincipalViewController: UIViewController {
     
     var usuario: Usuario?
+    var usuarios: Array<Usuario>?
     var diaTrabalhado: DiaTrabalhado?
 
     var tempoTotal = NSTimer()
@@ -37,22 +38,26 @@ class PrincipalViewController: UIViewController {
 
         switch e {
         case 0:
+            e++
             horaEntrada = NSDate()
             tempoTotal = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempoTotal", userInfo: nil, repeats: true)
             inicioTempo = horaEntrada.timeIntervalSinceReferenceDate
             
         case 1:
+            e++
             horaSaidaAlmoco = NSDate()
             tempoTotal.invalidate()
             tempoAlm = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempoAlmoco", userInfo: nil, repeats: true)
             inicioTempoAlmoco = horaSaidaAlmoco.timeIntervalSinceReferenceDate
         
         case 2:
+            e++
             horaVoltaAlmoco = NSDate()
             tempoAlm.invalidate()
             tempoTotal = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempoTotal", userInfo: nil, repeats: true)
             inicioTempo = horaEntrada.timeIntervalSinceReferenceDate - (horaSaidaAlmoco.timeIntervalSinceReferenceDate - horaVoltaAlmoco.timeIntervalSinceReferenceDate)
         case 3:
+            e = 0
             horaSaida = NSDate()
             tempoTotal.invalidate()
             
@@ -66,6 +71,9 @@ class PrincipalViewController: UIViewController {
             diaTrabalhado?.totalHoras = tempoTrabalhado/60
             
             DiaTrabalhadoManager.sharedInstance.salvar()
+            
+            tempoAlmoco.text = "00:00:00:00"
+            tempoLabel.text = "00:00:00:00"
 
             let alerta = UIAlertController(title: "Fim", message: "...", preferredStyle: .Alert)
             let ok = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
@@ -78,19 +86,15 @@ class PrincipalViewController: UIViewController {
             break
         }
 
-        if e != 3 {
-            e++
-        } else {
-            e = 0
-        }
         entrada.setTitle(entradas[e], forState: nil)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         verificaPrimeiroAcesso()
+        usuarios = UsuarioManager.sharedInstance.Usuario()
+        usuario = usuarios?[0]
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -151,7 +155,8 @@ class PrincipalViewController: UIViewController {
     func atualizaTempoTotal(){
         var tempoAtual = NSDate.timeIntervalSinceReferenceDate() as NSTimeInterval
         tempoTrabalhado = tempoAtual - inicioTempo
-        var auxTempoTrabalhado = tempoTrabalhado
+        var cargaHoraria = usuario!.cargaHorariaSemanal.doubleValue * 3600
+        var auxTempoTrabalhado = cargaHoraria - tempoTrabalhado
         
         let horas = UInt8(auxTempoTrabalhado/3600.0)
         auxTempoTrabalhado -= (NSTimeInterval(horas)*3600)
@@ -177,8 +182,9 @@ class PrincipalViewController: UIViewController {
     func atualizaTempoAlmoco(){
         var tempoAtual = NSDate.timeIntervalSinceReferenceDate() as NSTimeInterval
         tempoDeAlmoco = tempoAtual - inicioTempoAlmoco
-        var auxTempoDeAlmoco = tempoDeAlmoco
-        
+        var tA = usuario!.tempoAlmoco.doubleValue * 60
+        var auxTempoDeAlmoco = tA - tempoDeAlmoco
+    
         let horas = UInt8(auxTempoDeAlmoco/3600.0)
         auxTempoDeAlmoco -= (NSTimeInterval(horas)*3600)
         
