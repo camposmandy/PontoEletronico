@@ -62,8 +62,15 @@ class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let strHoras = horas > 9 ? String(horas):"0" + String(horas)
                 let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
                 
-                celula?.totalHoras.text = "\(strHoras):\(strMinutos)"
-                celula?.dataLbl.text = "\(dia.horaEntrada)"
+                celula?.totalHoras.text = "Total de horas: \(strHoras):\(strMinutos)"
+                
+                var dayFormatter = NSDateFormatter()
+                dayFormatter.dateFormat = "dd/MM/yyyy"
+                var dayString = dayFormatter.stringFromDate(dia.horaEntrada)
+                celula?.dataLbl.text = dayString
+
+                
+                
             }
 
             celula?.accessoryType = .DisclosureIndicator
