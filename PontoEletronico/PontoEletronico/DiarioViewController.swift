@@ -11,6 +11,7 @@ import UIKit
 class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var diasTrabalhados: Array<DiaTrabalhado>?
+    var cargaHorariaUser: Array<Usuario>?
     var auxTempo: Double?
     
     @IBOutlet weak var tableView: UITableView!
@@ -94,6 +95,7 @@ class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func reloadData(){
         diasTrabalhados = DiaTrabalhadoManager.sharedInstance.DiasTrabalho()
+        cargaHorariaUser = UsuarioManager.sharedInstance.Usuario()
         tableView.reloadData()
     }
     
@@ -102,6 +104,7 @@ class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let DetalheVC = segue.destinationViewController as! DetalheDiarioTableViewController
             let cell = sender as? UITableViewCell
             DetalheVC.diaTrab = diasTrabalhados?[tableView.indexPathForCell(cell!)!.row]
+            DetalheVC.user = cargaHorariaUser?[tableView.indexPathForCell(cell!)!.row]
         }
     }
 }

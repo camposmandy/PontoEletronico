@@ -19,6 +19,7 @@ class DetalheDiarioTableViewController: UITableViewController {
     @IBOutlet weak var creditoLbl: UILabel!
     
     var diaTrab : DiaTrabalhado!
+    var user : Usuario!
     
     
     override func viewDidLoad() {
@@ -46,12 +47,29 @@ class DetalheDiarioTableViewController: UITableViewController {
         
         var horaVoltaAlmocoString = hourFormatter.stringFromDate(diaTrab.horaVoltaAlmoco)
         
+        var tempoTrabalhado : Double = 0
+        
+        tempoTrabalhado = diaTrab.horaSaida.timeIntervalSinceDate(diaTrab.horaEntrada)/3600
+        
+        var cargaHorariaUsuario = user.cargaHorariaSemanal.doubleValue
+        //println(user.cargaHorariaSemanal)
+        
+        var tempoCredito  = tempoTrabalhado - cargaHorariaUsuario
+        println ("Carga Horaria \(tempoTrabalhado)")
+        println ("Carga Horaria Semanal \(cargaHorariaUsuario)")
+        println ("Diferença \(tempoCredito)")
+        
         diaTrabalhado.text = diaTrabalhadoString
         horaEntrada.text = horaEntradaString
         horaSaida.text = horaSaidaString
         horaSaidaAlmoco.text = horaSaidaAlmocoString
         horaVoltaAlmoco.text = horaVoltaAlmocoString
-        creditoLbl.text = "\(diaTrab.horaEntrada)"
+        
+        if (tempoTrabalhado > cargaHorariaUsuario) {
+            creditoLbl.text = "\(tempoCredito)"
+        } else {
+            creditoLbl.text = "Sem créditos."
+        }
     }
     
     override func didReceiveMemoryWarning() {
