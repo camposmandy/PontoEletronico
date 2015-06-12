@@ -97,10 +97,13 @@ class PrincipalViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        if usuarios?.count == 0 {
+        self.tabBarController?.tabBar.hidden = false
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if usuarios?.count != 0 {
             usuario = usuarios?[0]
         }
-        self.tabBarController?.tabBar.hidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -155,10 +158,13 @@ class PrincipalViewController: UIViewController {
     }
     
     func atualizaTempoTotal(){
+        
         var tempoAtual = NSDate.timeIntervalSinceReferenceDate() as NSTimeInterval
         tempoTrabalhado = tempoAtual - inicioTempo
         var cargaHoraria = usuario!.cargaHorariaSemanal.doubleValue * 3600
         var auxTempoTrabalhado = cargaHoraria - tempoTrabalhado
+        
+        if tempoTrabalhado < cargaHoraria {
         
         let horas = UInt8(auxTempoTrabalhado/3600.0)
         auxTempoTrabalhado -= (NSTimeInterval(horas)*3600)
@@ -174,12 +180,18 @@ class PrincipalViewController: UIViewController {
         let strHoras = horas > 9 ? String(horas):"0" + String(horas)
         let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
         let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
-        let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
-        
+        let strFracao =  fracao > 9 ? String(fracao): "0" + String(fracao)
+            
         var percPizza = (tempoTrabalhado*100)/cargaHoraria
+            
         ViewPizza.piePercent = percPizza
         
-        tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos):\(strFracao)"
+        tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos),\(strFracao)"
+        } else {
+            // Fazer alerta de acabou expediente
+            tempoTotal.invalidate()
+            tempoLabel.text = "00:00:00,00"
+        }
     }
     
     func atualizaTempoAlmoco(){
@@ -188,6 +200,8 @@ class PrincipalViewController: UIViewController {
         var tA = usuario!.tempoAlmoco.doubleValue * 60
         var auxTempoDeAlmoco = tA - tempoDeAlmoco
     
+        if tempoDeAlmoco < tA {
+        
         let horas = UInt8(auxTempoDeAlmoco/3600.0)
         auxTempoDeAlmoco -= (NSTimeInterval(horas)*3600)
         
@@ -204,6 +218,11 @@ class PrincipalViewController: UIViewController {
         let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
         let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
         
-        tempoAlmoco.text = "\(strHoras):\(strMinutos):\(strSegundos):\(strFracao)"
+        tempoAlmoco.text = "\(strHoras):\(strMinutos):\(strSegundos),\(strFracao)"
+        } else {
+            tempoAlm.invalidate()
+            tempoAlmoco.text = "00:00:00,00"
+        }
+        
     }
 }
