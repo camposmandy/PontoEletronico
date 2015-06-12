@@ -128,7 +128,7 @@
                         <sections>
                             <tableViewSection headerTitle="Dia Trabalhado" id="Qr6-Ee-oEO">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="puq-99-G5l" customClass="DetalheDiarioTableViewCell" customModule="PontoEletronico" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="74" id="puq-99-G5l" customClass="DetalheDiarioTableViewCell" customModule="PontoEletronico" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="puq-99-G5l" id="3Xf-dz-TZV">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -148,7 +148,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="odZ-Yv-FXA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="68" id="odZ-Yv-FXA">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="odZ-Yv-FXA" id="co3-xi-GEn">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -168,7 +168,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="unc-yR-fhA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="65" id="unc-yR-fhA">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="unc-yR-fhA" id="z8A-5K-Tg3">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -192,7 +192,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Horário de almoço" id="7BP-Qc-Hgh">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="53" id="Lkj-tA-vCv">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="53" id="Lkj-tA-vCv">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lkj-tA-vCv" id="Jzz-Ig-Ncy">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -212,7 +212,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="53" id="xxE-Kt-bW0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="53" id="xxE-Kt-bW0">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xxE-Kt-bW0" id="Hfv-ke-HWf">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -236,7 +236,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Total" id="HK3-7v-Xl7">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="xTL-zJ-Y5L">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="58" id="xTL-zJ-Y5L">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xTL-zJ-Y5L" id="bpR-25-XAh">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -256,7 +256,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="4ag-Py-Fqq">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="15" id="4ag-Py-Fqq">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4ag-Py-Fqq" id="9h2-4a-sSU">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -268,7 +268,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o56-HG-OOM">
-                                                    <rect key="frame" x="31" y="32" width="42" height="21"/>
+                                                    <rect key="frame" x="31" y="32" width="561" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -287,6 +287,7 @@
                     <navigationItem key="navigationItem" title="Detalhes" id="RlK-xh-eIw"/>
                     <connections>
                         <outlet property="creditoLbl" destination="bC9-jk-jhP" id="9q3-J7-wkb"/>
+                        <outlet property="debitoLbl" destination="o56-HG-OOM" id="Z8l-nR-CLt"/>
                         <outlet property="diaTrabalhado" destination="AGJ-z1-Okn" id="kwd-io-cwb"/>
                         <outlet property="horaEntrada" destination="v9U-I4-aTr" id="zfY-ny-IvZ"/>
                         <outlet property="horaSaida" destination="RFu-X1-Vz9" id="0AG-e1-sMu"/>

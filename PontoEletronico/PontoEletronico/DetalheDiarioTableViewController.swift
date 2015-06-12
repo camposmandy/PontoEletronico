@@ -17,6 +17,7 @@ class DetalheDiarioTableViewController: UITableViewController {
     @IBOutlet weak var horaSaidaAlmoco: UILabel!
     @IBOutlet weak var horaVoltaAlmoco: UILabel!
     @IBOutlet weak var creditoLbl: UILabel!
+    @IBOutlet weak var debitoLbl: UILabel!
     
     var diaTrab : DiaTrabalhado!
     var user : Usuario!
@@ -54,7 +55,8 @@ class DetalheDiarioTableViewController: UITableViewController {
         var cargaHorariaUsuario = user.cargaHorariaSemanal.doubleValue
         //println(user.cargaHorariaSemanal)
         
-        var tempoCredito  = tempoTrabalhado - cargaHorariaUsuario
+        var tempoCredito = tempoTrabalhado - cargaHorariaUsuario
+        var tempoDebito = cargaHorariaUsuario - tempoTrabalhado
         println ("Carga Horaria \(tempoTrabalhado)")
         println ("Carga Horaria Semanal \(cargaHorariaUsuario)")
         println ("Diferença \(tempoCredito)")
@@ -70,6 +72,13 @@ class DetalheDiarioTableViewController: UITableViewController {
         } else {
             creditoLbl.text = "Sem créditos."
         }
+        
+        if (tempoTrabalhado < cargaHorariaUsuario) {
+            debitoLbl.text = "\(tempoDebito)"
+        } else {
+            debitoLbl.text = "Sem débitos."
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
