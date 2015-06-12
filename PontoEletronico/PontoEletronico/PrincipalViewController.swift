@@ -93,7 +93,7 @@ class PrincipalViewController: UIViewController {
         super.viewDidLoad()
         
         verificaPrimeiroAcesso()
-        usuarios = UsuarioManager.sharedInstance.Usuario()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -101,6 +101,7 @@ class PrincipalViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        usuarios = UsuarioManager.sharedInstance.Usuario()
         if usuarios?.count != 0 {
             usuario = usuarios?[0]
         }
