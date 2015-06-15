@@ -13,6 +13,8 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
     @IBOutlet weak var btnCancelar: UIBarButtonItem!
     
     var usuario: Usuario!
+    var usuarios: Array<Usuario>?
+    
     var semana: Semana!
     var diaSemana: Array<Semana>?
     var semanaAux = [false, false, false, false, false, false, false]
@@ -28,6 +30,15 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
         super.viewDidLoad()
         
         cargaHoraria.delegate = self
+        
+        usuarios = UsuarioManager.sharedInstance.Usuario()
+        
+        if usuarios?.count != 0 {
+            if let us = usuarios?[0] {
+                usuario = us
+                preencherCampos()
+            }
+        }
         
         self.tabBarController?.tabBar.hidden = true
 
@@ -93,15 +104,17 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             var dateF = NSDateFormatter()
             var format = "HH:mm"
             
-            usuario = UsuarioManager.sharedInstance.novoUsuario()
-            
+            if usuarios?.count != 0 {
+                usuario = usuarios?[0]
+            } else {
+                usuario = UsuarioManager.sharedInstance.novoUsuario()
+            }
+
             usuario.nome = nomeUsuario.text
             usuario.nomeEmpresa = nomeEmpresa.text
             usuario.cargaHorariaSemanal = (cargaHoraria.text).toInt()!
             usuario.horaEntrada = horarioEntrada.date
             usuario.horaSaida = horarioSaida.date
-            //usuario.horaSaidaAlmoco = horarioSaidaAlmoco.date
-            //usuario.horaVoltaAlmoco = horarioVoltaAlmoco.date
             usuario.tempoAlmoco = (tempoAlmoco.text as NSString).integerValue
             
             diaSemana = SemanaManager.sharedInstance.Semana()
@@ -117,6 +130,18 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             UsuarioManager.sharedInstance.salvar()
             //SemanaManager.sharedInstance.salvar()
         }
+    }
+    
+    func preencherCampos() {
+        if let u = usuario {
+            nomeUsuario.text = u.nome
+            nomeEmpresa.text = u.nomeEmpresa
+            cargaHoraria.text = "\(u.cargaHorariaSemanal)"
+            horarioEntrada.date = u.horaEntrada
+            horarioSaida.date = u.horaSaida
+            tempoAlmoco.text = "\(u.tempoAlmoco)"
+        }
+        
     }
     
     // MARK: - Navigation

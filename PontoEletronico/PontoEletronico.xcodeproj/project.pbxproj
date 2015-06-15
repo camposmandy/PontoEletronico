@@ -32,7 +32,6 @@
 		170B52D11B277F3000127590 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52D01B277F3000127590 /* Usuario.swift */; };
 		170B52D51B28AD5600127590 /* DiaTrabalhado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52D41B28AD5600127590 /* DiaTrabalhado.swift */; };
 		170B52D71B28BA6100127590 /* DiarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52D61B28BA6100127590 /* DiarioViewController.swift */; };
-		17808E6B1B29F2FF0025A78F /* PieChartView02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17808E6A1B29F2FF0025A78F /* PieChartView02.swift */; };
 		B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB51B1E215E004070A0 /* DesignableView.swift */; };
 		B2B65DB81B1F67EB004070A0 /* DiaSemanaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB71B1F67EB004070A0 /* DiaSemanaTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -77,7 +76,6 @@
 		170B52D01B277F3000127590 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = PontoEletronico/Usuario.swift; sourceTree = "<group>"; };
 		170B52D41B28AD5600127590 /* DiaTrabalhado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaTrabalhado.swift; path = PontoEletronico/DiaTrabalhado.swift; sourceTree = "<group>"; };
 		170B52D61B28BA6100127590 /* DiarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiarioViewController.swift; path = PontoEletronico/DiarioViewController.swift; sourceTree = "<group>"; };
-		17808E6A1B29F2FF0025A78F /* PieChartView02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView02.swift; sourceTree = "<group>"; };
 		B2B65DB51B1E215E004070A0 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		B2B65DB71B1F67EB004070A0 /* DiaSemanaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaSemanaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +101,6 @@
 		109CC8931B1F500D00D7E692 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				17808E6A1B29F2FF0025A78F /* PieChartView02.swift */,
 				109CC8B61B1F534900D7E692 /* Sobre */,
 				109CC8B11B1F529600D7E692 /* Semana */,
 				109CC8A81B1F51C800D7E692 /* Perfil */,
@@ -358,7 +355,6 @@
 				170B52CB1B2607E500127590 /* Semana.swift in Sources */,
 				109CC8A11B1F514300D7E692 /* DetalheDiarioTableViewController.swift in Sources */,
 				B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */,
-				17808E6B1B29F2FF0025A78F /* PieChartView02.swift in Sources */,
 				170B52D11B277F3000127590 /* Usuario.swift in Sources */,
 				109CC8B01B1F525D00D7E692 /* EditarPerfilTableViewController.swift in Sources */,
 				10BF97D11B1CE2290007FCB0 /* DiaTrabalhadoManager.swift in Sources */,
