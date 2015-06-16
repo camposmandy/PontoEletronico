@@ -20,17 +20,20 @@ class DetalheDiarioTableViewController: UITableViewController {
     @IBOutlet weak var debitoLbl: UILabel!
     
     var diaTrab : DiaTrabalhado!
-    var user : Usuario!
-    
+    var usuarios : Array<Usuario>!
+    var usuario: Usuario!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usuarios = UsuarioManager.sharedInstance.Usuario()
+        usuario = usuarios[0]
+        
         preencherLabels()
     }
     
     
     func preencherLabels(){
-        
         //////////// Formatação do dia Trabalhado ////////////
         var dayFormatter = NSDateFormatter()
         dayFormatter.dateFormat = "dd/MM/yyyy"
@@ -39,27 +42,10 @@ class DetalheDiarioTableViewController: UITableViewController {
         hourFormatter.dateFormat = "HH:mm:ss"
         
         var diaTrabalhadoString = dayFormatter.stringFromDate(diaTrab.horaEntrada)
-        
         var horaEntradaString = hourFormatter.stringFromDate(diaTrab.horaEntrada)
-        
         var horaSaidaString = hourFormatter.stringFromDate(diaTrab.horaSaida)
-        
         var horaSaidaAlmocoString = hourFormatter.stringFromDate(diaTrab.horaSaidaAlmoco)
-        
         var horaVoltaAlmocoString = hourFormatter.stringFromDate(diaTrab.horaVoltaAlmoco)
-        
-        var tempoTrabalhado : Double = 0
-        
-        tempoTrabalhado = diaTrab.horaSaida.timeIntervalSinceDate(diaTrab.horaEntrada)/3600
-        
-        var cargaHorariaUsuario = user.cargaHorariaSemanal.doubleValue
-        //println(user.cargaHorariaSemanal)
-        
-        var tempoCredito = tempoTrabalhado - cargaHorariaUsuario
-        var tempoDebito = cargaHorariaUsuario - tempoTrabalhado
-        println ("Carga Horaria \(tempoTrabalhado)")
-        println ("Carga Horaria Semanal \(cargaHorariaUsuario)")
-        println ("Diferença \(tempoCredito)")
         
         diaTrabalhado.text = diaTrabalhadoString
         horaEntrada.text = horaEntradaString
@@ -67,18 +53,38 @@ class DetalheDiarioTableViewController: UITableViewController {
         horaSaidaAlmoco.text = horaSaidaAlmocoString
         horaVoltaAlmoco.text = horaVoltaAlmocoString
         
-        if (tempoTrabalhado > cargaHorariaUsuario) {
-            creditoLbl.text = "\(tempoCredito)"
-        } else {
-            creditoLbl.text = "Sem créditos."
-        }
+        var tempoTrabalhado = diaTrab.totalHoras.doubleValue
+        var cargaHorariaUsuario = usuario.cargaHorariaSemanal.doubleValue * 60
         
-        if (tempoTrabalhado < cargaHorariaUsuario) {
-            debitoLbl.text = "\(tempoDebito)"
+        if  cargaHorariaUsuario > tempoTrabalhado {
+            var auxTempoTrabalhado = cargaHorariaUsuario - tempoTrabalhado
+            
+            let horas = UInt8(auxTempoTrabalhado/60.0)
+            auxTempoTrabalhado -= (NSTimeInterval(horas)*60)
+            
+            let minutos = UInt8(auxTempoTrabalhado)
+            auxTempoTrabalhado -= (NSTimeInterval(minutos))
+            
+            let strHoras = horas > 9 ? String(horas):"0" + String(horas)
+            let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
+            
+            creditoLbl.text = "-\(strHoras):\(strMinutos)"
+            creditoLbl.textColor = UIColor .redColor()
         } else {
-            debitoLbl.text = "Sem débitos."
+            var auxTempoTrabalhado = tempoTrabalhado - cargaHorariaUsuario
+            
+            let horas = UInt8(auxTempoTrabalhado/60.0)
+            auxTempoTrabalhado -= (NSTimeInterval(horas)*60)
+            
+            let minutos = UInt8(auxTempoTrabalhado)
+            auxTempoTrabalhado -= (NSTimeInterval(minutos))
+            
+            let strHoras = horas > 9 ? String(horas):"0" + String(horas)
+            let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
+            
+            creditoLbl.text = "\(strHoras):\(strMinutos)"
+            creditoLbl.textColor = UIColor .greenColor()
         }
-        
     }
     
     override func didReceiveMemoryWarning() {

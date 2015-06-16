@@ -16,10 +16,13 @@ class PrincipalViewController: UIViewController {
 
     var tempoTotal = NSTimer()
     var tempoAlm = NSTimer()
+    var tempoExtra = NSTimer()
     var inicioTempo = NSTimeInterval()
     var inicioTempoAlmoco = NSTimeInterval()
+    var inicioTempoExtra = NSTimeInterval()
     var tempoDeAlmoco = NSTimeInterval()
     var tempoTrabalhado = NSTimeInterval()
+    var tempoHoraExtra = NSTimeInterval()
     
     var horaEntrada = NSDate()
     var horaSaida = NSDate()
@@ -42,6 +45,7 @@ class PrincipalViewController: UIViewController {
             horaEntrada = NSDate()
             tempoTotal = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempoTotal", userInfo: nil, repeats: true)
             inicioTempo = horaEntrada.timeIntervalSinceReferenceDate
+            tempoHoraExtra = 0
             
         case 1:
             e++
@@ -59,8 +63,9 @@ class PrincipalViewController: UIViewController {
         case 3:
             e = 0
             horaSaida = NSDate()
+            tempoExtra.invalidate()
             tempoTotal.invalidate()
-            
+
             diaTrabalhado = DiaTrabalhadoManager.sharedInstance.novoDiaTrabalho()
             
             diaTrabalhado?.horaEntrada = horaEntrada
@@ -68,9 +73,22 @@ class PrincipalViewController: UIViewController {
             diaTrabalhado?.horaVoltaAlmoco = horaVoltaAlmoco
             diaTrabalhado?.horaSaida = horaSaida
             diaTrabalhado?.tempoAlmoco = tempoDeAlmoco/60
-            diaTrabalhado?.totalHoras = tempoTrabalhado/60
+            diaTrabalhado?.totalHoras = (tempoTrabalhado + tempoHoraExtra)/60
             
             DiaTrabalhadoManager.sharedInstance.salvar()
+            
+            var bH = usuario?.bancoHoras.doubleValue
+            var saldo = tempoTrabalhado/60 - usuario!.cargaHorariaSemanal.doubleValue * 60
+            var usuarioCH = usuario?.cargaHorariaSemanal.doubleValue
+            
+            if saldo >= 0 {
+                var auxBH = bH! + tempoHoraExtra/60
+                usuario?.bancoHoras = auxBH
+            } else {
+                var auxBH = bH! + saldo
+                usuario?.bancoHoras = auxBH
+            }
+            UsuarioManager.sharedInstance.salvar()
             
             tempoAlmoco.text = "00:00:00:00"
             tempoLabel.text = "00:00:00:00"
@@ -87,13 +105,14 @@ class PrincipalViewController: UIViewController {
         }
 
         entrada.setTitle(entradas[e], forState: nil)
+        
+        println("Banco de Horas = \(usuario?.bancoHoras)")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         verificaPrimeiroAcesso()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -189,9 +208,13 @@ class PrincipalViewController: UIViewController {
         
         tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos),\(strFracao)"
         } else {
-            // Fazer alerta de acabou expediente
+            
             tempoTotal.invalidate()
             tempoLabel.text = "00:00:00,00"
+            
+            var tempoExtraInicio = NSDate()
+            tempoExtra = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaHoraExtra", userInfo: nil, repeats: true)
+            inicioTempoExtra = tempoExtraInicio.timeIntervalSinceReferenceDate
         }
     }
     
@@ -224,6 +247,29 @@ class PrincipalViewController: UIViewController {
             tempoAlm.invalidate()
             tempoAlmoco.text = "00:00:00,00"
         }
+    }
+    
+    func atualizaHoraExtra() {
+        var tempoAtual = NSDate.timeIntervalSinceReferenceDate() as NSTimeInterval
+        tempoHoraExtra = tempoAtual - inicioTempoExtra
+        var auxTempoHoraExtra = tempoHoraExtra
+            
+        let horas = UInt8(auxTempoHoraExtra/3600.0)
+        auxTempoHoraExtra -= (NSTimeInterval(horas)*3600)
         
+        let minutos = UInt8(auxTempoHoraExtra/60.0)
+        auxTempoHoraExtra -= (NSTimeInterval(minutos)*60)
+        
+        let segundos = UInt8(auxTempoHoraExtra)
+        auxTempoHoraExtra -= NSTimeInterval(segundos)
+        
+        let fracao = UInt8(auxTempoHoraExtra*100)
+        
+        let strHoras = horas > 9 ? String(horas):"0" + String(horas)
+        let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
+        let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
+        let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
+        
+        tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos),\(strFracao)"
     }
 }

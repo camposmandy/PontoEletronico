@@ -104,7 +104,7 @@ class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let DetalheVC = segue.destinationViewController as! DetalheDiarioTableViewController
             let cell = sender as? UITableViewCell
             DetalheVC.diaTrab = diasTrabalhados?[tableView.indexPathForCell(cell!)!.row]
-            DetalheVC.user = cargaHorariaUser?[tableView.indexPathForCell(cell!)!.row]
+            //DetalheVC.user = cargaHorariaUser?[tableView.indexPathForCell(cell!)!.row]
         }
     }
 }
