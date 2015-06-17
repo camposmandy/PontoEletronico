@@ -13,6 +13,8 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
     @IBOutlet weak var btnCancelar: UIBarButtonItem!
     
     var usuario: Usuario!
+    var usuarios: Array<Usuario>?
+    
     var semana: Semana!
     var diaSemana: Array<Semana>?
     var semanaAux = [false, false, false, false, false, false, false]
@@ -90,8 +92,12 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             var dateF = NSDateFormatter()
             var format = "HH:mm"
             
-            usuario = UsuarioManager.sharedInstance.novoUsuario()
-            
+            if usuarios?.count != 0 {
+                usuario = usuarios?[0]
+            } else {
+                usuario = UsuarioManager.sharedInstance.novoUsuario()
+            }
+
             usuario.nome = nomeUsuario.text
             usuario.nomeEmpresa = nomeEmpresa.text
             usuario.cargaHorariaSemanal = (cargaHoraria.text).toInt()!
