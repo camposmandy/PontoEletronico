@@ -113,6 +113,7 @@ class PrincipalViewController: UIViewController {
         super.viewDidLoad()
         
         verificaPrimeiroAcesso()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -270,6 +271,6 @@ class PrincipalViewController: UIViewController {
         let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
         let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
         
-        tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos),\(strFracao)"
+        tempoLabel.text = "\(strHoras):\(strSegundos),\(strFracao)"
     }
 }

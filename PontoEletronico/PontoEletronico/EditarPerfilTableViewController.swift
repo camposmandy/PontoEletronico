@@ -26,11 +26,8 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         cargaHoraria.delegate = self
-        
         self.tabBarController?.tabBar.hidden = true
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,7 +86,7 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     @IBAction func salvar(sender: AnyObject){
-        if verificacaoDosCampos(){
+        if verificacaoDosCampos() {
             var dateF = NSDateFormatter()
             var format = "HH:mm"
             
@@ -100,12 +97,9 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             usuario.cargaHorariaSemanal = (cargaHoraria.text).toInt()!
             usuario.horaEntrada = horarioEntrada.date
             usuario.horaSaida = horarioSaida.date
-            //usuario.horaSaidaAlmoco = horarioSaidaAlmoco.date
-            //usuario.horaVoltaAlmoco = horarioVoltaAlmoco.date
             usuario.tempoAlmoco = (tempoAlmoco.text as NSString).integerValue
             
             diaSemana = SemanaManager.sharedInstance.Semana()
-            
             
             for i in 0..<self.semanaAux.count {
                 if semanaAux[i] == true {
@@ -115,10 +109,52 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             }
             
             UsuarioManager.sharedInstance.salvar()
-            //SemanaManager.sharedInstance.salvar()
+           notificacao()
         }
     }
     
+    func notificacao(){
+        if let ll = usuario{
+            var diasSemanaTrab = ll.possuiSemana.allObjects as NSArray
+            var diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta","Sábado"]
+            var i  = 0
+            for dia in diasSemana {
+                for i in 0...6{
+                    var mm = diasSemanaTrab[i] as! Semana
+                    if  dia == mm.nomeDIa {
+                        var notificacao = UILocalNotification()
+                        var format = NSDateFormatter()
+                        
+                        format.dateFormat = "yyyy/MM/dd hh:mm:ss"
+                        format.dateFromString("2015/06/14 ")
+                        let hora = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitHour, fromDate: ll.horaEntrada)
+                        let min = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMinute, fromDate: ll.horaEntrada)
+                        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+                        let dataNotificacao = NSDateComponents()
+                        let calendarAux = NSCalendar.currentCalendar()
+                        
+                        dataNotificacao.year = 2015
+                        dataNotificacao.month = 06
+                        dataNotificacao.day = 14 + i
+                        dataNotificacao.hour = hora.hour
+                        dataNotificacao.minute = min.minute
+                        dataNotificacao.second = 10
+                        
+                        let dateNot = calendar!.dateFromComponents(dataNotificacao)
+                        
+                        notificacao.alertAction = "Ir ao App"
+                        notificacao.alertBody = "Faltam 15 minutos"
+                        notificacao.soundName = UILocalNotificationDefaultSoundName
+                        notificacao.fireDate = calendarAux.dateByAddingUnit(.CalendarUnitMinute, value: -15, toDate: dateNot!, options: nil)
+                        notificacao.repeatInterval = NSCalendarUnit.CalendarUnitWeekday
+                        
+                        UIApplication.sharedApplication().scheduleLocalNotification(notificacao)
+                        println("Data: \(dateNot)")
+                    }
+                }
+            }
+        }
+    }
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -127,8 +163,5 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
                 proxVC.senderViewController = self
             }
         }
-
     }
-    
-
 }
