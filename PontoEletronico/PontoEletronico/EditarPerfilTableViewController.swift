@@ -29,6 +29,15 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         cargaHoraria.delegate = self
+        
+        usuarios = UsuarioManager.sharedInstance.Usuario()
+        
+        if usuarios?.count != 0 {
+            if let us = usuarios?[0] {
+                usuario = us
+            }
+        }
+        
         self.tabBarController?.tabBar.hidden = true
     }
 
@@ -161,6 +170,7 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             }
         }
     }
+    
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -171,3 +181,4 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
         }
     }
 }
+

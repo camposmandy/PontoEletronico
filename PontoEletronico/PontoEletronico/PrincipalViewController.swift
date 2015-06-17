@@ -9,7 +9,7 @@
 import UIKit
 
 class PrincipalViewController: UIViewController {
-    
+
     var usuario: Usuario?
     var usuarios: Array<Usuario>?
     var diaTrabalhado: DiaTrabalhado?
@@ -51,15 +51,18 @@ class PrincipalViewController: UIViewController {
             e++
             horaSaidaAlmoco = NSDate()
             tempoTotal.invalidate()
+            notificacaoAlmoco()
             tempoAlm = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempoAlmoco", userInfo: nil, repeats: true)
             inicioTempoAlmoco = horaSaidaAlmoco.timeIntervalSinceReferenceDate
         
         case 2:
+            UIApplication.sharedApplication().cancelAllLocalNotifications()
             e++
             horaVoltaAlmoco = NSDate()
             tempoAlm.invalidate()
             tempoTotal = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "atualizaTempoTotal", userInfo: nil, repeats: true)
             inicioTempo = horaEntrada.timeIntervalSinceReferenceDate - (horaSaidaAlmoco.timeIntervalSinceReferenceDate - horaVoltaAlmoco.timeIntervalSinceReferenceDate)
+            
         case 3:
             e = 0
             horaSaida = NSDate()
@@ -273,4 +276,24 @@ class PrincipalViewController: UIViewController {
         
         tempoLabel.text = "\(strHoras):\(strSegundos),\(strFracao)"
     }
+    
+    func notificacaoAlmoco(){
+
+        var notificacao = UILocalNotification()
+
+        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+        let calendarAux = NSCalendar.currentCalendar()
+        
+        notificacao.alertAction = "Ir ao App"
+        notificacao.alertBody = "Faltam 15 minutos para o fim do almoço"
+        notificacao.soundName = UILocalNotificationDefaultSoundName
+        notificacao.fireDate = calendarAux.dateByAddingUnit(.CalendarUnitMinute, value: 45, toDate: horaSaidaAlmoco, options: nil)
+        notificacao.repeatInterval = NSCalendarUnit.CalendarUnitWeekday
+    
+        UIApplication.sharedApplication().scheduleLocalNotification(notificacao)
+        println("Hora alarme: \(notificacao.fireDate)")
+        println("Hora do almoço: \(horaSaidaAlmoco)")
+    }
 }
+
+
