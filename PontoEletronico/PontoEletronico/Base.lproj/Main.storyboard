@@ -943,7 +943,11 @@
         <scene sceneID="xdW-S9-m7m">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HTv-1s-HRz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Principal" id="liH-op-92C"/>
+                    <tabBarItem key="tabBarItem" title="Principal" image="Principal" id="liH-op-92C">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Principal-Cheio"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yUN-ug-lhg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -966,7 +970,11 @@
         <scene sceneID="Hkp-du-gN1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GTn-de-inj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diário" id="C5d-YH-5gh"/>
+                    <tabBarItem key="tabBarItem" title="Diário" image="Diario" id="C5d-YH-5gh">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Diario-Cheio"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c9P-0J-a4N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -990,7 +998,11 @@
         <scene sceneID="oel-he-pOp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wLq-g9-bG4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Configurações" id="nHF-yO-mkE"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="Config" id="nHF-yO-mkE">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Config-Cheio"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f4a-gH-eXR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1313,6 +1325,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Config" width="32" height="32"/>
+        <image name="Config-Cheio" width="32" height="32"/>
+        <image name="Diario" width="32" height="32"/>
+        <image name="Diario-Cheio" width="32" height="32"/>
+        <image name="Principal" width="32" height="32"/>
+        <image name="Principal-Cheio" width="32" height="32"/>
         <image name="cancel-48" width="24" height="24"/>
         <image name="edit-48" width="24" height="24"/>
         <image name="icon2" width="512" height="512"/>

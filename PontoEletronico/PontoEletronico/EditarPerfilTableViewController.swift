@@ -115,7 +115,7 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             }
             
             UsuarioManager.sharedInstance.salvar()
-           notificacao()
+            notificacao()
         }
     }
     
