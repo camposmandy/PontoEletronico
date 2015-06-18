@@ -279,20 +279,32 @@ class PrincipalViewController: UIViewController {
     
     func notificacaoAlmoco(){
 
-        var notificacao = UILocalNotification()
+        var notificacao2: UILocalNotification = UILocalNotification()
 
         let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
         let calendarAux = NSCalendar.currentCalendar()
         
-        notificacao.alertAction = "Ir ao App"
-        notificacao.alertBody = "Faltam 15 minutos para o fim do almoço"
-        notificacao.soundName = UILocalNotificationDefaultSoundName
-        notificacao.fireDate = calendarAux.dateByAddingUnit(.CalendarUnitMinute, value: 45, toDate: horaSaidaAlmoco, options: nil)
-        notificacao.repeatInterval = NSCalendarUnit.CalendarUnitWeekday
-    
-        UIApplication.sharedApplication().scheduleLocalNotification(notificacao)
-        println("Hora alarme: \(notificacao.fireDate)")
+        let hora = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitHour, fromDate: horaSaidaAlmoco)
+        let min = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMinute, fromDate: horaSaidaAlmoco)
+        let horaNotificacao = NSDateComponents()
+
+        horaNotificacao.hour = hora.hour
+        horaNotificacao.minute = min.minute
+        horaNotificacao.second = 10
+        
+        let dateNotif = calendar!.dateFromComponents(horaNotificacao)
+        let calendarAux2 = NSCalendar.currentCalendar()
+
+        notificacao2.alertAction = "Ir ao App"
+        notificacao2.alertBody = "Faltam 15 minutos para o fim do almoço"
+        notificacao2.soundName = UILocalNotificationDefaultSoundName
+        
+        notificacao2.fireDate = calendarAux2.dateByAddingUnit(.CalendarUnitMinute, value: 1, toDate: dateNotif!, options: nil)
+
+        UIApplication.sharedApplication().scheduleLocalNotification(notificacao2)
+        println("Hora alarme: \(notificacao2)")
         println("Hora do almoço: \(horaSaidaAlmoco)")
+        //println("notifihasudiuasgdsgaiu \(UIApplication.sharedApplication().scheduledLocalNotifications)")
     }
 }
 

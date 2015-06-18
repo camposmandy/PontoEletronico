@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>44D629C1-8038-4C24-8819-7F2D9EA346CC</string>
 	<key>IDESourceControlProjectName</key>
-	<string>PontoEletronico</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5551892FBCC67090A27D5D790F88BD9B5D0988B4</key>
 		<string>https://github.com/camposmandy/PontoEletronico.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>PontoEletronico/PontoEletronico.xcodeproj</string>
+	<string>PontoEletronico/PontoEletronico.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5551892FBCC67090A27D5D790F88BD9B5D0988B4</key>
