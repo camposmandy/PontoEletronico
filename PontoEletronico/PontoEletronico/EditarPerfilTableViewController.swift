@@ -124,11 +124,11 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             }
             
             UsuarioManager.sharedInstance.salvar()
-           notificacao()
+            notificacaoManda()
         }
     }
     
-    func notificacao(){
+    func notificacaoManda(){
         if let ll = usuario{
             var diasSemanaTrab = ll.possuiSemana.allObjects as NSArray
             var diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta","Sábado"]

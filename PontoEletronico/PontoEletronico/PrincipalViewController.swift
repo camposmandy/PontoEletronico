@@ -13,6 +13,8 @@ class PrincipalViewController: UIViewController {
     var usuario: Usuario?
     var usuarios: Array<Usuario>?
     var diaTrabalhado: DiaTrabalhado?
+    
+    let myColor = UIColor(red: 37/255, green: 116/255, blue: 169/255, alpha: 1)
 
     var tempoTotal = NSTimer()
     var tempoAlm = NSTimer()
@@ -38,7 +40,6 @@ class PrincipalViewController: UIViewController {
     @IBOutlet weak var ViewPizza: ViewCustomizada!
     
     @IBAction func entrada(sender: AnyObject) {
-
         switch e {
         case 0:
             e++
@@ -114,7 +115,8 @@ class PrincipalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tabBarController!.tabBar.tintColor = myColor
+        ViewPizza.piePercent = 0
         verificaPrimeiroAcesso()
         
     }
@@ -274,7 +276,7 @@ class PrincipalViewController: UIViewController {
         let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
         let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
         
-        tempoLabel.text = "\(strHoras):\(strSegundos),\(strFracao)"
+        tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos),\(strFracao)"
     }
     
     func notificacaoAlmoco(){

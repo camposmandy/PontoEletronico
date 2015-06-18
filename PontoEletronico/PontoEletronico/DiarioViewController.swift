@@ -11,7 +11,8 @@ import UIKit
 class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var diasTrabalhados: Array<DiaTrabalhado>?
-    var cargaHorariaUser: Array<Usuario>?
+    var usuarios: Array<Usuario>?
+    var usuario: Usuario?
     var auxTempo: Double?
     
     @IBOutlet weak var tableView: UITableView!
@@ -69,9 +70,17 @@ class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 dayFormatter.dateFormat = "dd/MM/yyyy"
                 var dayString = dayFormatter.stringFromDate(dia.horaEntrada)
                 celula?.dataLbl.text = dayString
-
                 
+                var totalDoDia = dia.totalHoras.intValue
+                var cHD = usuario!.cargaHorariaSemanal.doubleValue * 60
                 
+                if totalDoDia == Int32(cHD) {
+                    celula?.imagem.image = UIImage(named: "Dia-Azul.png")
+                } else if totalDoDia > Int32(cHD) {
+                    celula?.imagem.image = UIImage(named: "Dia-Verde.png")
+                } else {
+                    celula?.imagem.image = UIImage(named: "Dia-Vermelho.png")
+                }
             }
 
             celula?.accessoryType = .DisclosureIndicator
@@ -95,7 +104,10 @@ class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func reloadData(){
         diasTrabalhados = DiaTrabalhadoManager.sharedInstance.DiasTrabalho()
-        cargaHorariaUser = UsuarioManager.sharedInstance.Usuario()
+        usuarios = UsuarioManager.sharedInstance.Usuario()
+        if let u = usuarios {
+            usuario = u[0]
+        }
         tableView.reloadData()
     }
     

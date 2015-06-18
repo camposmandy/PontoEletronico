@@ -21,8 +21,11 @@ class ViewCustomizada: UIView {
     var piePercent:Double = 20{
             willSet(newPiePercent) { updatePiePercent(newPiePercent) }
     }
-    var pieColor = UIColor(red: 49/255, green: 209/255, blue: 102/255, alpha: 1)
-    //var pieColor = UIImage(named: "1.png")
+    //var pieColor = UIColor(red: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+
+    var pieColor = UIColor(red: 37/255, green: 116/255, blue: 169/255, alpha: 1)
+    var pieBackgroundColor = UIColor.whiteColor()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -39,7 +42,7 @@ class ViewCustomizada: UIView {
             
             background.fillColor = nil
             background.lineWidth = CGFloat(lineWidth)
-            background.strokeColor = UIColor(white: 0.5, alpha: 0.3).CGColor
+            background.strokeColor = pieBackgroundColor.CGColor
             
         }
         
@@ -55,7 +58,7 @@ class ViewCustomizada: UIView {
             pieOverLayer.path = path.CGPath
             pieOverLayer.fillColor = nil
             pieOverLayer.lineWidth = CGFloat(lineWidth)
-            pieOverLayer.strokeColor = UIColor(red: 49/255, green: 209/255, blue: 102/255, alpha: 1).CGColor
+            pieOverLayer.strokeColor = pieColor.CGColor
             pieOverLayer.anchorPoint = CGPointMake(0.5, 0.5)
             pieOverLayer.transform = CATransform3DRotate(pieOverLayer.transform, CGFloat(-M_PI/2), 0, 0, 1)
         }
