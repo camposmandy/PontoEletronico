@@ -34,6 +34,10 @@ class PerfilTableViewController: UITableViewController {
         
         preencherLabels()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        preencherLabels()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

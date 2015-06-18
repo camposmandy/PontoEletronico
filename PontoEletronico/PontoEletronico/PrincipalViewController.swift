@@ -276,7 +276,7 @@ class PrincipalViewController: UIViewController {
         let strSegundos = segundos > 9 ? String(segundos): "0" + String(segundos)
         let strFracao = fracao > 9 ? String(fracao): "0" + String(fracao)
         
-        tempoLabel.text = "\(strHoras):\(strSegundos),\(strFracao)"
+        tempoLabel.text = "\(strHoras):\(strMinutos):\(strSegundos),\(strFracao)"
     }
     
     func notificacaoAlmoco(){

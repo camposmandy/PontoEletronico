@@ -71,9 +71,12 @@ class DiarioViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 var dayString = dayFormatter.stringFromDate(dia.horaEntrada)
                 celula?.dataLbl.text = dayString
                 
-                if dia.totalHoras.intValue == usuario?.cargaHorariaSemanal.intValue {
+                var totalDoDia = dia.totalHoras.intValue
+                var cHD = usuario!.cargaHorariaSemanal.doubleValue * 60
+                
+                if totalDoDia == Int32(cHD) {
                     celula?.imagem.image = UIImage(named: "Dia-Azul.png")
-                } else if dia.totalHoras.doubleValue >= usuario?.cargaHorariaSemanal.doubleValue {
+                } else if totalDoDia > Int32(cHD) {
                     celula?.imagem.image = UIImage(named: "Dia-Verde.png")
                 } else {
                     celula?.imagem.image = UIImage(named: "Dia-Vermelho.png")
