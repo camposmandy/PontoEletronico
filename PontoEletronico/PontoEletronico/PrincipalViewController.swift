@@ -97,7 +97,7 @@ class PrincipalViewController: UIViewController {
             tempoAlmoco.text = "00:00:00:00"
             tempoLabel.text = "00:00:00:00"
 
-            let alerta = UIAlertController(title: "Fim", message: "...", preferredStyle: .Alert)
+            let alerta = UIAlertController(title: "Fim de Expediente", message: "Até Amanhã", preferredStyle: .Alert)
             let ok = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
                 self.navigationController?.popViewControllerAnimated(true)
             }

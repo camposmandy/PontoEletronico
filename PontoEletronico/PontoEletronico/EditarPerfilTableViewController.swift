@@ -134,7 +134,7 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             var diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta","Sábado"]
             var i  = 0
             for dia in diasSemana {
-                for i in 0...6{
+                for i in 0...4{
                     var mm = diasSemanaTrab[i] as! Semana
                     if  dia == mm.nomeDIa {
                         var notificacao = UILocalNotification()
@@ -158,7 +158,7 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
                         let dateNot = calendar!.dateFromComponents(dataNotificacao)
                         
                         notificacao.alertAction = "Ir ao App"
-                        notificacao.alertBody = "Faltam 15 minutos"
+                        notificacao.alertBody = "Faltam 15 minutos para o inicio do expediente."
                         notificacao.soundName = UILocalNotificationDefaultSoundName
                         notificacao.fireDate = calendarAux.dateByAddingUnit(.CalendarUnitMinute, value: -15, toDate: dateNot!, options: nil)
                         notificacao.repeatInterval = NSCalendarUnit.CalendarUnitWeekday
