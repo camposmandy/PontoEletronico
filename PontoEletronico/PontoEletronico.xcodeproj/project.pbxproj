@@ -34,6 +34,7 @@
 		170B52D71B28BA6100127590 /* DiarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B52D61B28BA6100127590 /* DiarioViewController.swift */; };
 		B2B65DB61B1E215E004070A0 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB51B1E215E004070A0 /* DesignableView.swift */; };
 		B2B65DB81B1F67EB004070A0 /* DiaSemanaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B65DB71B1F67EB004070A0 /* DiaSemanaTableViewCell.swift */; };
+		B2CFD4D91B34A0E4006854B9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2CFD4D81B34A0E4006854B9 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		170B52D61B28BA6100127590 /* DiarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiarioViewController.swift; path = PontoEletronico/DiarioViewController.swift; sourceTree = "<group>"; };
 		B2B65DB51B1E215E004070A0 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		B2B65DB71B1F67EB004070A0 /* DiaSemanaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaSemanaTableViewCell.swift; sourceTree = "<group>"; };
+		B2CFD4D81B34A0E4006854B9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CFD4D91B34A0E4006854B9 /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +172,7 @@
 		10BF979C1B1CDE820007FCB0 = {
 			isa = PBXGroup;
 			children = (
+				B2CFD4D81B34A0E4006854B9 /* Social.framework */,
 				10BF97A71B1CDE820007FCB0 /* PontoEletronico */,
 				10BF97C01B1CDE820007FCB0 /* PontoEletronicoTests */,
 				10BF97A61B1CDE820007FCB0 /* Products */,

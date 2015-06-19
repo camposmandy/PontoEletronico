@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class PrincipalViewController: UIViewController {
 
@@ -33,6 +34,10 @@ class PrincipalViewController: UIViewController {
     
     var entradas = ["Entrada", "Saída Almoço", "Volta Almoço", "Saída"]
     var e = 0
+    
+    @IBAction func shareFacebook(sender: AnyObject) {
+        compartilharFB()
+    }
     
     @IBOutlet weak var tempoLabel: UILabel!
     @IBOutlet weak var tempoAlmoco: UILabel!
@@ -307,6 +312,24 @@ class PrincipalViewController: UIViewController {
         println("Hora alarme: \(notificacao2)")
         println("Hora do almoço: \(horaSaidaAlmoco)")
         //println("notifihasudiuasgdsgaiu \(UIApplication.sharedApplication().scheduledLocalNotifications)")
+    }
+    
+    func compartilharFB(){
+        
+        if (SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)) {
+            var facebookShare: SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            
+            facebookShare.setInitialText("Estou utilizando o PontoEletronico!")
+            
+            self.presentViewController(facebookShare, animated: true, completion: nil)
+            
+        } else {
+            var alert = UIAlertController(title: "Conta", message: "Favor fazer o login no Facebook", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 }
 

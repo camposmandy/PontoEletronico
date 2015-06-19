@@ -98,15 +98,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKT-y3-JL3">
+                                <rect key="frame" x="542" y="84" width="42" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="NMG-r2-blF"/>
+                                    <constraint firstAttribute="width" constant="42" id="slv-n7-RnQ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="facebook-64">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareFacebook:" destination="upF-ho-x7z" eventType="touchUpInside" id="f2B-RA-Vdd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LKT-y3-JL3" firstAttribute="top" secondItem="T8x-1N-ggU" secondAttribute="bottom" constant="20" id="69u-Kg-gIy"/>
                             <constraint firstItem="oKo-91-mYK" firstAttribute="top" secondItem="T8x-1N-ggU" secondAttribute="bottom" constant="20" id="A1O-ca-jhO"/>
                             <constraint firstItem="E4I-cd-pKY" firstAttribute="leading" secondItem="Kzd-4e-79V" secondAttribute="leadingMargin" id="AS6-RY-q4u"/>
                             <constraint firstItem="QVS-P7-mG9" firstAttribute="leading" secondItem="Kzd-4e-79V" secondAttribute="leadingMargin" id="Adc-kL-0ut"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QVS-P7-mG9" secondAttribute="trailing" id="GOh-iu-lBf"/>
                             <constraint firstItem="6dM-JJ-M25" firstAttribute="top" secondItem="oKo-91-mYK" secondAttribute="bottom" constant="15" id="Usg-mx-nv3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6dM-JJ-M25" secondAttribute="trailing" id="XdL-eh-O0R"/>
+                            <constraint firstItem="LKT-y3-JL3" firstAttribute="trailing" secondItem="Kzd-4e-79V" secondAttribute="trailingMargin" id="a4n-uw-vK0"/>
                             <constraint firstItem="E4I-cd-pKY" firstAttribute="top" secondItem="6dM-JJ-M25" secondAttribute="bottom" constant="15" id="bAF-lS-PAb"/>
                             <constraint firstItem="oKo-91-mYK" firstAttribute="centerY" secondItem="YoP-rc-Lfd" secondAttribute="centerY" constant="0.5" id="czZ-vi-5Bu"/>
                             <constraint firstItem="QVS-P7-mG9" firstAttribute="top" secondItem="E4I-cd-pKY" secondAttribute="bottom" constant="30" id="j4q-DZ-Fgn"/>
@@ -1352,6 +1367,7 @@
         <image name="Principal-Cheio" width="32" height="32"/>
         <image name="cancel-48" width="24" height="24"/>
         <image name="edit-48" width="24" height="24"/>
+        <image name="facebook-64" width="64" height="64"/>
         <image name="ok-48" width="24" height="24"/>
     </resources>
     <color key="tintColor" red="0.14509803921568629" green="0.45490196078431372" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
