@@ -20,6 +20,14 @@ class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewC
         alerta()
     }
     
+    @IBAction func btnZerarBanco(sender: AnyObject) {
+        let usuarios = UsuarioManager.sharedInstance.Usuario()
+        let usuario = usuarios![0] as Usuario
+        
+        usuario.bancoHoras = 0
+        UsuarioManager.sharedInstance.salvar()
+    }
+
     @IBAction func btnApagar(sender: AnyObject) {
         alertaDiasTrabalhados()
     }
