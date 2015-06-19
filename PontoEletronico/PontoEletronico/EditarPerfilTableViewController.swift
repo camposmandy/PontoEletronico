@@ -134,7 +134,7 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
             var diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta","Sábado"]
             var i  = 0
             for dia in diasSemana {
-                for i in 0...4{
+                for i in 0..<diasSemanaTrab.count{
                     var mm = diasSemanaTrab[i] as! Semana
                     if  dia == mm.nomeDIa {
                         var notificacao = UILocalNotification()
