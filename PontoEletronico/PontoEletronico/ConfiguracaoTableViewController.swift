@@ -21,6 +21,7 @@ class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewC
     }
     
     @IBAction func btnZerarBanco(sender: AnyObject) {
+        alertaDiasTrabalhados()
         let usuarios = UsuarioManager.sharedInstance.Usuario()
         let usuario = usuarios![0] as Usuario
         
@@ -76,6 +77,7 @@ class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewC
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
 
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
