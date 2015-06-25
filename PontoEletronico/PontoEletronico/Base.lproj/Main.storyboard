@@ -455,13 +455,13 @@
                                                         <constraint firstAttribute="width" secondItem="qtI-bM-cd4" secondAttribute="height" multiplier="1:1" id="Rbh-nA-L75"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmG-6i-ZCn">
-                                                    <rect key="frame" x="65" y="8" width="518" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmG-6i-ZCn">
+                                                    <rect key="frame" x="65" y="8" width="517" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvx-3E-oSV">
-                                                    <rect key="frame" x="64" y="33" width="518" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvx-3E-oSV">
+                                                    <rect key="frame" x="65" y="33" width="517" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1051,27 +1051,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NvR-h8-NKd">
-                                <rect key="frame" x="179" y="74" width="243" height="193"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pontoEletronico" translatesAutoresizingMaskIntoConstraints="NO" id="NvR-h8-NKd" customClass="JMImageView" customModule="PontoEletronico" customModuleProvider="target">
+                                <rect key="frame" x="175.5" y="10" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="193" id="IOd-Su-hUA"/>
-                                    <constraint firstAttribute="width" constant="243" id="uFf-fF-gDM"/>
+                                    <constraint firstAttribute="height" constant="250" id="IOd-Su-hUA"/>
+                                    <constraint firstAttribute="width" constant="250" id="uFf-fF-gDM"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="125"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipping" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lzc-gM-eah">
-                                <rect key="frame" x="82" y="323" width="436" height="171"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lzc-gM-eah">
+                                <rect key="frame" x="125" y="316" width="350" height="171"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="171" id="Wcz-Xi-eaT"/>
                                     <constraint firstAttribute="width" constant="350" id="ejW-kd-XXH"/>
                                 </constraints>
-                                <string key="text">O PontoEletrônico é um App dedicado às pessoas que tem a necessidade de registrar diariamente suas horas trabalhadas e seu banco de horas com facilidade.  Desenvolvido por: - Amanda Campos - João Marcos
+                                <string key="text">O PontoEletrônico é um App dedicado às pessoas que tem a necessidade de registrar diariamente suas horas trabalhadas e seu banco de horas com facilidade.
+
+Desenvolvido por:
+- Amanda Campos
+- João Marcos
 - Leonardo Brunassi</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NvR-h8-NKd" secondAttribute="trailing" constant="162" id="5rH-dV-1UC"/>
                             <constraint firstItem="Lzc-gM-eah" firstAttribute="top" secondItem="NvR-h8-NKd" secondAttribute="bottom" constant="56" id="CO2-SK-ZM7"/>
@@ -1479,6 +1489,7 @@
         <image name="cancel-48" width="24" height="24"/>
         <image name="edit-48" width="24" height="24"/>
         <image name="ok-48" width="24" height="24"/>
+        <image name="pontoEletronico" width="512" height="512"/>
     </resources>
     <color key="tintColor" red="0.14509803921568629" green="0.45490196078431372" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

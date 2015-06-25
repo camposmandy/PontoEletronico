@@ -10,8 +10,11 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auZ-Ss-O5D">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="44"/>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auZ-Ss-O5D">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="aho-jv-PPt"/>
+                    </constraints>
                     <color key="barTintColor" red="0.1450980392" green="0.4549019608" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <items>
                         <navigationItem id="sKO-oQ-jLY"/>
