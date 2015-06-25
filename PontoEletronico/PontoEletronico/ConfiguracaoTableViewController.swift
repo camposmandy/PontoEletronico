@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Social
 
 class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
@@ -20,12 +21,11 @@ class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewC
         alerta()
     }
     
+    @IBAction func btnFacebook(sender: AnyObject) {
+        compartilharFB()
+    }
     @IBAction func btnZerarBanco(sender: AnyObject) {
-        let usuarios = UsuarioManager.sharedInstance.Usuario()
-        let usuario = usuarios![0] as Usuario
-        
-        usuario.bancoHoras = 0
-        UsuarioManager.sharedInstance.salvar()
+        alertaBancoDeHoras()
     }
 
     @IBAction func btnApagar(sender: AnyObject) {
@@ -76,6 +76,22 @@ class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewC
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    func alertaBancoDeHoras(){
+        let alert: UIAlertController = UIAlertController(title: "Atenção", message: "Tem certeza que deseja apagar o banco de horas?", preferredStyle: .Alert)
+        let ok: UIAlertAction = UIAlertAction(title: "OK", style: .Default) { action -> Void in
+            let usuarios = UsuarioManager.sharedInstance.Usuario()
+            let usuario = usuarios![0] as Usuario
+            
+            usuario.bancoHoras = 0
+            UsuarioManager.sharedInstance.salvar()
+        }
+        
+        alert.addAction(ok)
+        alert.addAction(cancelar)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
@@ -102,5 +118,23 @@ class ConfiguracaoTableViewController: UITableViewController, MFMailComposeViewC
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    func compartilharFB(){
+        
+        if (SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)) {
+            var facebookShare: SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            
+            facebookShare.setInitialText("Estou utilizando o PontoEletronico!")
+            
+            self.presentViewController(facebookShare, animated: true, completion: nil)
+            
+        } else {
+            var alert = UIAlertController(title: "Conta", message: "Favor fazer o login no Facebook", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 }

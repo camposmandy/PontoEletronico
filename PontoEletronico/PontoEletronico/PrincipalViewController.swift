@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Social
 
 class PrincipalViewController: UIViewController {
 
@@ -34,10 +33,6 @@ class PrincipalViewController: UIViewController {
     
     var entradas = ["Entrada", "Saída Almoço", "Volta Almoço", "Saída"]
     var e = 0
-    
-    @IBAction func shareFacebook(sender: AnyObject) {
-        compartilharFB()
-    }
     
     @IBOutlet weak var tempoLabel: UILabel!
     @IBOutlet weak var tempoAlmoco: UILabel!
@@ -110,6 +105,7 @@ class PrincipalViewController: UIViewController {
             
             alerta.addAction(ok)
             self.presentViewController(alerta, animated: true, completion: nil)
+            atualizaBH()
         default:
             break
         }
@@ -132,35 +128,7 @@ class PrincipalViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        usuarios = UsuarioManager.sharedInstance.Usuario()
-        if usuarios?.count != 0 {
-            usuario = usuarios?[0]
-        }
-        
-        if let u = usuario {
-            var bancoHoras = u.bancoHoras.doubleValue
-            
-            if bancoHoras < 0 {
-                bancoHoras = -bancoHoras
-                labelSaldoHoras.textColor = UIColor.redColor()
-            } else {
-                labelSaldoHoras.textColor = UIColor.greenColor()
-            }
-            if bancoHoras == 0 {
-                labelSaldoHoras.textColor = UIColor.blackColor()
-            }
-
-            let horas = UInt8(bancoHoras/60.0)
-            bancoHoras -= (NSTimeInterval(horas)*60)
-            
-            let minutos = UInt8(bancoHoras)
-            bancoHoras -= (NSTimeInterval(minutos))
-            
-            let strHoras = horas > 9 ? String(horas):"0" + String(horas)
-            let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
-            
-            labelSaldoHoras.text = "\(strHoras):\(strMinutos)"
-        }
+        atualizaBH()
     }
 
     override func didReceiveMemoryWarning() {
@@ -340,23 +308,38 @@ class PrincipalViewController: UIViewController {
         //println("notifihasudiuasgdsgaiu \(UIApplication.sharedApplication().scheduledLocalNotifications)")
     }
     
-    func compartilharFB(){
+    func atualizaBH(){
+        usuarios = UsuarioManager.sharedInstance.Usuario()
+        if usuarios?.count != 0 {
+            usuario = usuarios?[0]
+        }
         
-        if (SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)) {
-            var facebookShare: SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        if let u = usuario {
+            var bancoHoras = u.bancoHoras.doubleValue
             
-            facebookShare.setInitialText("Estou utilizando o PontoEletronico!")
+            if bancoHoras < 0 {
+                bancoHoras = -bancoHoras
+                labelSaldoHoras.textColor = UIColor.redColor()
+            } else {
+                labelSaldoHoras.textColor = UIColor.greenColor()
+            }
+            if bancoHoras == 0 {
+                labelSaldoHoras.textColor = UIColor.whiteColor()
+            }
             
-            self.presentViewController(facebookShare, animated: true, completion: nil)
+            let horas = UInt8(bancoHoras/60.0)
+            bancoHoras -= (NSTimeInterval(horas)*60)
             
-        } else {
-            var alert = UIAlertController(title: "Conta", message: "Favor fazer o login no Facebook", preferredStyle: UIAlertControllerStyle.Alert)
+            let minutos = UInt8(bancoHoras)
+            bancoHoras -= (NSTimeInterval(minutos))
             
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            let strHoras = horas > 9 ? String(horas):"0" + String(horas)
+            let strMinutos = minutos > 9 ? String(minutos):"0" + String(minutos)
             
-            self.presentViewController(alert, animated: true, completion: nil)
+            labelSaldoHoras.text = "\(strHoras):\(strMinutos)"
         }
     }
+
 }
 
 

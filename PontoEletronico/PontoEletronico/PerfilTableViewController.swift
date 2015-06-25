@@ -31,7 +31,6 @@ class PerfilTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         preencherLabels()
     }
     
@@ -47,21 +46,21 @@ class PerfilTableViewController: UITableViewController {
         self.tabBarController?.tabBar.hidden = false
     }
 
-    func preencherLabels(){
+    func preencherLabels() {
         
-   usuario = UsuarioManager.sharedInstance.Usuario()
-    
-    var horario = NSDateFormatter()
+        usuario = UsuarioManager.sharedInstance.Usuario()
+        
+        var horario = NSDateFormatter()
         horario.dateFormat = "HH:mm"
-    var minhaCor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
-    
-        tempoAlmoco.text = "\(usuario[i].tempoAlmoco)"
+        var minhaCor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
+        
+        tempoAlmoco.text = "\(usuario[i].tempoAlmoco) minutos"
         horarioSaida.text = horario.stringFromDate(usuario[i].horaSaida)
         horarioEntrada.text = horario.stringFromDate(usuario[i].horaEntrada)
         nomeUsuario.text = usuario[i].nome
         nomeEmpresa.text = usuario[i].nomeEmpresa
-        cargaHoraria.text = "\(usuario[i].cargaHorariaSemanal)"
-            
+        cargaHoraria.text = "\(usuario[i].cargaHorariaSemanal) horas"
+        
         var dia = usuario[i].possuiSemana.allObjects as NSArray
         for i in 0...dia.count-1 {
             var nomeDIa = (dia.objectAtIndex(i) as! Semana).nomeDIa

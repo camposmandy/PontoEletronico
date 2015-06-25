@@ -21,21 +21,26 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
 
     @IBOutlet weak var nomeUsuario: UITextField!
     @IBOutlet weak var nomeEmpresa: UITextField!
-    @IBOutlet weak var cargaHoraria: UITextField!
     @IBOutlet weak var tempoAlmoco: UITextField!
     @IBOutlet weak var horarioEntrada: UIDatePicker!
     @IBOutlet weak var horarioSaida: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cargaHoraria.delegate = self
         
         usuarios = UsuarioManager.sharedInstance.Usuario()
         
         if usuarios?.count != 0 {
             if let us = usuarios?[0] {
                 usuario = us
+                nomeUsuario.text = usuario.nome
+                nomeEmpresa.text = usuario.nomeEmpresa
+                tempoAlmoco.text = "\(usuario.tempoAlmoco)"
+                horarioSaida.date = usuario.horaSaida
+                horarioEntrada.date = usuario.horaEntrada
             }
+        } else {
+            
         }
         
         self.tabBarController?.tabBar.hidden = true
@@ -63,11 +68,6 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
         
         if(nomeEmpresa.text == ""){
             alertMsg += "- Informe o nome da empresa\n"
-            alert = true
-        }
-
-        if(cargaHoraria.text == ""){
-            alertMsg += "- Informe a carga horária\n"
             alert = true
         }
         
@@ -109,7 +109,8 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
 
             usuario.nome = nomeUsuario.text
             usuario.nomeEmpresa = nomeEmpresa.text
-            usuario.cargaHorariaSemanal = (cargaHoraria.text).toInt()!
+            usuario.cargaHorariaSemanal = calcCargaHoraria()
+            
             usuario.horaEntrada = horarioEntrada.date
             usuario.horaSaida = horarioSaida.date
             usuario.tempoAlmoco = (tempoAlmoco.text as NSString).integerValue
@@ -179,6 +180,11 @@ class EditarPerfilTableViewController: UITableViewController, UITextFieldDelegat
                 proxVC.senderViewController = self
             }
         }
+    }
+    
+    func calcCargaHoraria() -> Int {
+        let aux = horarioSaida.date.timeIntervalSinceDate(horarioEntrada.date)
+        return Int(aux)/3600
     }
 }
 
